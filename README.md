@@ -1,3 +1,2 @@
-# git_test
-My first Github repo
-Hello Odin!todo-odin
+# git_test  
+TODO project for The Odin Project

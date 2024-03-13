@@ -43,7 +43,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack app',
+      title: 'You-Do',
       filename: 'index.html',
       template: 'src/template.html',
     }),

@@ -30,7 +30,7 @@ Should be optional
 ### Assign to Project
 
 Each TODO should automatically be added to a default project  
-Should be optional to change while contrcuting, or later  
+Should be optional to change while constructing, or later  
 method to change the project
 
 ### Store TODOS

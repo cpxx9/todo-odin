@@ -9,7 +9,7 @@ Project breakdown
 
 ### TODO
 
-Create object to store various parts of a todo
+Create object to store various parts of a todo  
 Probably use classes with composition
 
 #### Add title
@@ -22,19 +22,19 @@ Same as title logic but for a short description
 
 #### Add due date
 
-Same as title logic but for a due date
+Same as title logic but for a due date  
 Should be optional
 
 #### Add priority
 
-Same as title logic but for a priority weight
-1 highest and 5 lowest
+Same as title logic but for a priority weight  
+1 highest and 5 lowest  
 Should be optional
 
 #### Assign to Project
 
-Each TODO should automatically be added to a default project
-Should be optional to change while contrcuting, or later
+Each TODO should automatically be added to a default project  
+Should be optional to change while contrcuting, or later  
 method to change the project
 
 #### Store TODOS

@@ -5,8 +5,8 @@ them based on the category selected, along with other features
 
 ## TODOs
 
-Create object to store various parts of a todo  
-Probably use classes with composition
+**Create object to store various parts of a todo  
+Probably use classes with composition**
 
 ### Add title
 

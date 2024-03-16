@@ -30,8 +30,7 @@ Should be optional
 ### Assign to Project
 
 Each TODO should automatically be added to a default project  
-Should be optional to change while constructing, or later  
-method to change the project
+Property to indicate which project it is in
 
 ### Store TODOS
 
@@ -39,8 +38,24 @@ Each new TODO that is created gets pushed to the end of an array
 
 ## Projects
 
+_Create object to store various parts of a project  
+Probably use classes with composition_
+
 ### Add title
+
+Constuctor will take title, set that to tile property
 
 ### Add description
 
+Same as title logic but for a short description
+
 ### Add Color
+
+Same as title logic but for a unique color  
+Should be optional
+
+### Store TODOs
+
+should be a private property that is an array  
+Method to add todos to the project  
+Method to remove TODOs

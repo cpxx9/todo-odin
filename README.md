@@ -3,48 +3,44 @@
 Project to make an app where users can create TODOs, categorize them, and show  
 them based on the category selected, along with other features
 
-## The needs
-
-Project breakdown
-
-### TODO
+## TODO
 
 Create object to store various parts of a todo  
 Probably use classes with composition
 
-#### Add title
+### Add title
 
 Constructor will take a title and set that to a title property
 
-#### Add description
+### Add description
 
 Same as title logic but for a short description
 
-#### Add due date
+### Add due date
 
 Same as title logic but for a due date  
 Should be optional
 
-#### Add priority
+### Add priority
 
 Same as title logic but for a priority weight  
 1 highest and 5 lowest  
 Should be optional
 
-#### Assign to Project
+### Assign to Project
 
 Each TODO should automatically be added to a default project  
 Should be optional to change while contrcuting, or later  
 method to change the project
 
-#### Store TODOS
+### Store TODOS
 
 Each new TODO that is created gets pushed to the end of an array
 
-### Project
+## Project
 
-#### Add title
+### Add title
 
-#### Add description
+### Add description
 
-#### Add Color
+### Add Color

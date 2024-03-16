@@ -3,7 +3,7 @@
 Project to make an app where users can create TODOs, categorize them, and show  
 them based on the category selected, along with other features
 
-## TODO
+## TODOs
 
 Create object to store various parts of a todo  
 Probably use classes with composition
@@ -37,7 +37,7 @@ method to change the project
 
 Each new TODO that is created gets pushed to the end of an array
 
-## Project
+## Projects
 
 ### Add title
 

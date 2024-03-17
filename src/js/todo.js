@@ -2,6 +2,7 @@
 class Todo {
   constructor() {
     this.title = arguments[0];
+    this.project = 'default';
     if (arguments.length > 1) {
       this.description = arguments[1];
     }

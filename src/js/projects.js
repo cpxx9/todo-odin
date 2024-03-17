@@ -1,8 +1,8 @@
 'use strict';
-
 class Project {
   constructor() {
     this.title = arguments[0];
+    this.index = 0;
     this.todos = [];
     if (arguments.length > 1) {
       this.description = arguments[1];

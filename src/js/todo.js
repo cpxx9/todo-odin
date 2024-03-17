@@ -1,33 +1,19 @@
 'use strict';
 class Todo {
-  constructor(title) {
-    this.title = title;
-    this.project = 'default';
-  }
-
-  changeProject(projectTitle) {
-    this.project = projectTitle;
-  }
-
-  get description() {
-    return this.description;
-  }
-  set description(description) {
-    this.description = description;
-  }
-
-  get dueDate() {
-    return this.project;
-  }
-  set dueDate(dueDate) {
-    this.dueDate = dueDate;
-  }
-
-  get priority() {
-    return this.project;
-  }
-  set priority(priority) {
-    this.priority = priority;
+  constructor() {
+    this.title = arguments[0];
+    if (arguments.length > 1) {
+      this.description = arguments[1];
+    }
+    if (arguments.length > 2) {
+      this.dueDate = arguments[2];
+    }
+    if (arguments.length > 3) {
+      this.priority = arguments[3];
+    }
+    if (arguments.length > 4) {
+      this.project = arguments[4];
+    }
   }
 }
 

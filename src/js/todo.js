@@ -1,6 +1,4 @@
 'use strict';
-const todos = [];
-
 class Todo {
   constructor(title) {
     this.title = title;

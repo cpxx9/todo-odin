@@ -7,8 +7,12 @@ const projects = [new Project('Default', 'This is the default project')];
 
 let test = new Project('Test', 'This is a test project');
 projects.push(test);
+let test1 = new Project('Test1', 'This is a test project 1');
+projects.push(test1);
 
 createTodo('Test', 1);
+
+moveTodo(0, 2);
 
 function createTodo() {
   const newTodo = new Todo(...arguments);
@@ -21,4 +25,9 @@ function createTodo() {
   }
 }
 
+function moveTodo(todoIndex, projectIndex) {
+  projects[projectIndex].todos.push(todos[todoIndex]);
+}
+
+console.log(todos);
 console.log(projects);

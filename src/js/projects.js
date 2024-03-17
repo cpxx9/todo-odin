@@ -17,9 +17,14 @@ class Project {
 
   addTodo(todo) {
     this.todos.push(todo);
+    this.todos[this.todos.length - 1].project = this.index;
+    this.todos[this.todos.length - 1].currentProjectIndex =
+      this.todos.length - 1;
   }
 
   removeTodo(index) {
+    this.todos[index].project = 0;
+    delete this.todos[index].currentProjectIndex;
     this.todos.splice(index, 1);
     this.todos.forEach((todo) => {
       if (todo.currentProjectIndex >= index) {

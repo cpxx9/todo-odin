@@ -8,7 +8,7 @@ function createTodo() {
   const newTodo = new Todo(...arguments);
   todos.push(newTodo);
   newTodo.defaultProjectIndex = projects[0].todos.length;
-  projects[0].addTodo(newTodo);
+  projects[0].todos.push(newTodo);
   if (newTodo.project <= projects.length - 1) {
     if (newTodo.project) {
       newTodo.currentProjectIndex = projects[newTodo.project].todos.length;

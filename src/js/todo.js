@@ -2,17 +2,11 @@
 class Todo {
   constructor(title) {
     this.title = title;
+    this.project = 'default';
   }
 
   changeProject(projectTitle) {
     this.project = projectTitle;
-  }
-
-  get project() {
-    return this.project;
-  }
-  set project(project) {
-    this.project = project;
   }
 
   get description() {

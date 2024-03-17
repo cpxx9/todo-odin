@@ -21,6 +21,11 @@ class Project {
 
   removeTodo(index) {
     this.todos.splice(index, 1);
+    this.todos.forEach((todo) => {
+      if (todo.currentProjectIndex >= index) {
+        todo.currentProjectIndex--;
+      }
+    });
   }
 }
 

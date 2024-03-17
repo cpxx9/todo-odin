@@ -16,5 +16,8 @@ createTodo('Skip', 2);
 createTodo('Skip2', 2);
 
 moveTodo(todos[0], projects[2]);
+moveTodo(todos[3], projects[0]);
+
+// projects[2].removeTodo(1);
 console.log(todos);
 console.log(projects);

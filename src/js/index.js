@@ -15,7 +15,6 @@ createTodo('Test2', 1);
 createTodo('Skip', 2);
 createTodo('Skip2', 2);
 
-// moveTodo(0, 2);
-
+moveTodo(todos[0], projects[2]);
 console.log(todos);
 console.log(projects);

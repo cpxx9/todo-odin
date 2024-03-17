@@ -17,7 +17,15 @@ function createTodo() {
   }
 }
 
-function moveTodo(todo, project) {}
+function moveTodo(todo, project) {
+  projects[todo.project].todos.splice(todo.currentProjectIndex, 1);
+  projects[todo.project].todos.forEach((todo) => {
+    todo.currentProjectIndex--;
+  });
+  todo.currentProjectIndex = project.todos.length;
+  project.todos.push(todo);
+  todo.project = project.index;
+}
 
 function createProject() {
   const newProject = new Project(...arguments);

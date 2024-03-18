@@ -41,7 +41,7 @@ main {
   grid-template-areas:
     'main-grid-sidebar main-grid-header'
     'main-grid-sidebar main-content';
-  min-height: 100vh;
+  height: 100vh;
   color: var(--gray-3);
 }
 
@@ -54,7 +54,8 @@ main {
 .main-content {
   grid-area: main-content;
   background-color: var(--gray-2);
-  overflow: auto;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .main-grid-sidebar {
@@ -92,7 +93,7 @@ _____________________________________________ */
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 55vh;
+  justify-content: space-between;
   padding: 40px 0;
   padding-left: 3%;
 }
@@ -357,6 +358,10 @@ _____________________________________________ */
   opacity: 0.5;
   scale: 1.2;
   cursor: pointer;
+}
+
+#projectTitle {
+  position: relative;
 }
 
 /*FOOTER

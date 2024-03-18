@@ -240,12 +240,6 @@ _____________________________________________ */
 
 /* Main Grid Content Styles
 _____________________________________________ */
-.main-content {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 32px;
-}
-
 .main-content h3 {
   margin: 32px 0 10px 0;
   padding: 0;
@@ -256,11 +250,11 @@ _____________________________________________ */
   padding-bottom: 25px;
 }
 
-.main-content-left {
+.main-content-cards {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr;
-  padding-left: 2vw;
+  padding: 0 2vw;
 }
 
 .content-left-cards {
@@ -380,6 +374,57 @@ _____________________________________________ */
   border-radius: 10px;
   opacity: 0.8;
   cursor: pointer;
+}
+
+/*FOOTER
+------------------------------*/
+footer a {
+  color: #bcaa96;
+}
+
+footer a:hover {
+  color: #3c8453;
+}
+
+footer {
+  background: #222;
+  color: #d3d4d6;
+  padding: 0 20px;
+}
+
+.socials {
+  list-style-type: none;
+  padding: 0;
+}
+
+.socials li {
+  align-self: center;
+  display: inline-block;
+  margin-left: 10px;
+  padding-top: 6px;
+}
+
+.socials img {
+  width: 32px;
+}
+
+.socials img:hover {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 560px) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  footer {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
 /* Media Query Styles

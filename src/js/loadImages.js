@@ -39,9 +39,6 @@ function loadImages() {
   const settings = document.querySelector('#settings');
   settings.src = Settings;
 
-  const support = document.querySelector('#support');
-  support.src = Support;
-
   const github = document.querySelector('#github');
   github.src = Github;
 

@@ -1,0 +1,392 @@
+/* Imports
+_____________________________________________ */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* Global Varibles
+_____________________________________________ */
+:root {
+  /* Grays */
+  --gray-1: #fafaf9;
+  --gray-2: #e7e5e4;
+  --gray-3: #292524;
+  --gray-4: #1c1917;
+  --gray-m: #78716c;
+
+  /* Color Palettes */
+  --main-blue: #6895d2;
+  --accent-red: #d04848;
+
+  /* Shadows */
+  --bottom-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Main Grid Content Styles
+_____________________________________________ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template: 200px 4fr / minmax(300px, 0.8fr) 5fr;
+  grid-template-areas:
+    'main-grid-sidebar main-grid-header'
+    'main-grid-sidebar main-content';
+  min-height: 100vh;
+  color: var(--gray-3);
+}
+
+.main-grid-header {
+  grid-area: main-grid-header;
+  background-color: var(--gray-1);
+  box-shadow: var(--bottom-shadow);
+}
+
+.main-content {
+  grid-area: main-content;
+  background-color: var(--gray-2);
+  overflow: auto;
+}
+
+.main-grid-sidebar {
+  grid-area: main-grid-sidebar;
+  background-color: var(--main-blue);
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+
+/* Sidebar Styles
+_____________________________________________ */
+.main-grid-sidebar {
+  padding-top: 10%;
+  color: var(--gray-1);
+}
+
+.sidebar-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  gap: 50px;
+}
+
+.sidebar-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 10px;
+  row-gap: 16px;
+  padding-left: 3%;
+}
+
+.sidebar-content a,
+.sidebar-content h1 {
+  margin: 0;
+  text-align: start;
+}
+
+.sidebar-content h1 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+.sidebar-content a {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--gray-1);
+}
+
+.sidebar-content a:hover {
+  color: var(--gray-2);
+  scale: 1.1;
+}
+
+.sidebar-header img {
+  width: 70px;
+  height: 70px;
+}
+
+.sidebar-tools img,
+.sidebar-nav img {
+  justify-self: center;
+}
+
+.sidebar-header:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Header Styles
+_____________________________________________ */
+.main-grid-header {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+.header-content-wrapper {
+  width: 100%;
+  padding: 10px 40px;
+  display: grid;
+  grid-template-rows: 0.8fr 1fr;
+}
+
+.header-top,
+.header-bottom {
+  display: grid;
+}
+
+.header-top {
+  grid-template-columns: 3fr 1fr;
+  gap: 125px;
+}
+
+.header-top input[type='search'] {
+  border: none;
+  border-radius: 30px;
+  background-color: var(--gray-2);
+  padding-left: 10px;
+  font-size: 1.1rem;
+}
+
+.header-top div {
+  display: grid;
+}
+
+.header-top-left {
+  grid-template-columns: min-content 1fr;
+  align-content: center;
+  gap: 15px;
+}
+
+.header-top-left img {
+  justify-self: end;
+}
+
+.header-top img:hover,
+.header-top-right p:hover {
+  scale: 1.2;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.header-top-right {
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+}
+
+.header-top-right .icon {
+  align-self: center;
+}
+
+.header-top .user-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.header-bottom {
+  grid-template-columns: 1fr 0.6fr;
+}
+
+.header-bottom-left {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.header-bottom-left-child.user-logo {
+  width: 90px;
+  height: 90px;
+}
+
+.hello-text * {
+  margin: 0;
+  padding: 0;
+}
+
+.header-bottom-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.header-button {
+  border-radius: 30px;
+  width: 90%;
+  height: 35%;
+  border: none;
+  background-color: var(--main-blue);
+  color: var(--gray-1);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  opacity: 0.8;
+}
+
+/* Main Grid Content Styles
+_____________________________________________ */
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 32px;
+}
+
+.main-content h3 {
+  margin: 32px 0 10px 0;
+  padding: 0;
+}
+
+.main-content-left,
+.main-content-right {
+  padding-bottom: 25px;
+}
+
+.main-content-left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  padding-left: 2vw;
+}
+
+.content-left-cards {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+}
+
+.card {
+  background-color: var(--gray-1);
+  border-radius: 9px;
+  box-shadow: var(--card-shadow);
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7% 5% 3% 5%;
+  border-left: 12px solid var(--accent-red);
+}
+
+.main-card img {
+  height: 3vh;
+  width: 3vh;
+}
+
+.card-content h3,
+.card-content p,
+.card-content a {
+  margin: 0;
+  padding: 0;
+}
+
+.card-content h3 {
+  font-size: 1rem;
+}
+
+.card-content p {
+  font-size: 0.8em;
+}
+
+.card-tools {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.card-tools a:hover {
+  opacity: 0.5;
+  scale: 1.2;
+}
+
+.main-content-right {
+  display: grid;
+  grid-template-rows: min-content 3fr min-content 3fr;
+  padding-right: 2vw;
+}
+
+.main-content-right h4 {
+  font-weight: bolder;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content-right p {
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.announcement-card,
+.trending-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+.announcement-card div {
+  margin: 0 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.announcement-card div:nth-child(1) {
+  border-bottom: 1px solid var(--gray-m);
+}
+
+.announcement-card div:nth-child(3) {
+  border-top: 1px solid var(--gray-m);
+}
+
+.trending-card div {
+  margin: 0 2vh;
+  display: flex;
+  align-items: center;
+}
+
+.trending-card div div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.trending-card div img {
+  width: 3vw;
+  height: 3vw;
+}
+
+.announcement-card div:hover,
+.trending-card div:hover {
+  background-color: var(--gray-2);
+  border-radius: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Media Query Styles
+_____________________________________________ */
+
+@media screen and (min-width: 2200px) {
+  * {
+    font-size: 1.2rem;
+  }
+}

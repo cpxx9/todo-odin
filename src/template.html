@@ -1,13 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" type="image/x-icon" href="./img/favicon.svg">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.svg">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
+
 <body>
-  
+  <main>
+    <!-- Main Content -->
+    <section class="main-grid-item main-content">
+
+    </section>
+
+    <!-- Sidebar -->
+    <section class="main-grid-item main-grid-sidebar">
+      <div class="sidebar-content-wrapper">
+        <div class="sidebar-content sidebar-header">
+          <img src="img/sidebar/main-logo.svg" alt="site logo">
+          <h1>MySaaS</h1>
+        </div>
+
+        <div class="sidebar-content sidebar-nav">
+          <img class="icon" src="img/sidebar/home.svg" alt="Home">
+          <a href="">Home</a>
+
+          <img class="icon" src="img/sidebar/profile.svg" alt="Profile">
+          <a href="">Profile</a>
+
+          <img class="icon" src="img/sidebar/messages.svg" alt="Messages">
+          <a href="">Messages</a>
+
+          <img class="icon" src="img/sidebar/history.svg" alt="History">
+          <a href="">History</a>
+
+          <img class="icon" src="img/sidebar/tasks.svg" alt="Tasks">
+          <a href="">Tasks</a>
+
+          <img class="icon" src="img/sidebar/communities.svg" alt="Communities">
+          <a href="">Communities</a>
+        </div>
+
+        <div class="sidebar-content sidebar-tools">
+          <img class="icon" src="img/sidebar/settings.svg" alt="Settings">
+          <a href="">Settings</a>
+
+          <img class="icon" src="img/sidebar/support.svg" alt="Support">
+          <a href="">Support</a>
+
+          <img class="icon" src="img/sidebar/privacy.svg" alt="Privacy">
+          <a href="">Privacy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Header -->
+    <section class="main-grid-item main-grid-header">
+      <div class="header-content-wrapper">
+        <div class="header-top">
+          <div class="header-top-left">
+            <img class="icon" src="img/header/search.svg" alt="search">
+            <div><input type="search" name="main_search" id="main_search"></div>
+          </div>
+          <div class="header-top-right">
+            <img class="icon" src="img/header/bell-ring-outline.svg" alt="notification bell">
+            <img class="user-logo" src="img/header/user-logo.svg" alt="User logo">
+            <p>Owner</p>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="header-bottom-left">
+            <img class="header-bottom-left-child user-logo" src="img/header/user-logo.svg" alt="User logo">
+            <div class="hello-text">
+              <p class="header-bottom-left-child">Hi there,</p>
+              <h2 class="header-bottom-left-child">Owner (@owner)</h2>
+            </div>
+          </div>
+          <div class="header-bottom-right">
+            <button class="header-button">New</button>
+            <button class="header-button">Upload</button>
+            <button class="header-button">Share</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
+
 </html>

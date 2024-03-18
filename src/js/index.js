@@ -7,6 +7,8 @@ import {
   projects,
 } from './appController';
 
+import '../css/style.css';
+
 createProject('Test', 'This is a test project');
 createProject('Test1', 'This is a test project 1');
 

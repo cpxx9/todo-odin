@@ -8,6 +8,7 @@ import {
   projects,
 } from './appController';
 import { loadCards, loadProjects } from './domController';
+import { loadImages } from './loadImages';
 import '../css/style.css';
 
 document.addEventListener('click', function (e) {
@@ -52,5 +53,6 @@ createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
 console.log(projects);
 console.log(todos);
 
+loadImages();
 loadCards(projects[0]);
 loadProjects(projects);

@@ -768,8 +768,6 @@ function loadImages() {
   projects.src = sidebar_projects_namespaceObject;
   var settings = document.querySelector('#settings');
   settings.src = settings_namespaceObject;
-  var support = document.querySelector('#support');
-  support.src = support_namespaceObject;
   var github = document.querySelector('#github');
   github.src = icon_logo_github_namespaceObject;
   var instagram = document.querySelector('#instagram');
@@ -872,4 +870,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled75d5097c751eaf39532.js.map
+//# sourceMappingURL=bundlef85dc98643a716bc5369.js.map

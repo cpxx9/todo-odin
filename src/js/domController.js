@@ -1,6 +1,7 @@
 import StarLogo from '../img/main/star-plus.svg';
 import EyeLogo from '../img/main/eye-plus.svg';
 import ShareLogo from '../img/main/share.svg';
+import { projects } from './appController';
 
 const cardArea = document.querySelector('.content-left-cards');
 const projectArea = document.querySelector('.projects-wrapper');
@@ -16,8 +17,16 @@ function loadCards(todoArr) {
     const cardTitle = document.createElement('h3');
     cardTitle.textContent = todo.title;
     const cardPara = document.createElement('p');
+    if (todo.description) {
+      cardPara.textContent = todo.description;
+    }
     cardContent.appendChild(cardTitle);
     cardContent.appendChild(cardPara);
+    if (todo.project !== 0) {
+      const cardProject = document.createElement('p');
+      cardProject.textContent = `Project: ${projects[todo.project].title}`;
+      cardContent.appendChild(cardProject);
+    }
 
     const cardTools = document.createElement('div');
     cardTools.classList.add('card-tools');

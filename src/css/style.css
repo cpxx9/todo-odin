@@ -120,7 +120,8 @@ _____________________________________________ */
   color: var(--gray-1);
 }
 
-.sidebar-content a:hover {
+.sidebar-content a:hover,
+.projects-wrapper a:hover {
   color: var(--gray-2);
   scale: 1.1;
 }
@@ -146,6 +147,28 @@ _____________________________________________ */
 .sidebar-header:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.projects-wrapper {
+  padding-left: 20%;
+  padding-top: 2%;
+  display: none;
+}
+
+.projects-wrapper a {
+  font-size: 1.1rem;
+  font-weight: normal;
+  padding: 3px 5px;
+  border-left: 2px solid var(--gray-m);
+}
+
+.nav-wrapper-project:hover .projects-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-wrapper.nav-wrapper-project {
+  display: inline;
 }
 
 /* Header Styles

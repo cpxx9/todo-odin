@@ -72,13 +72,9 @@ _____________________________________________ */
 .main-grid-sidebar {
   padding-top: 10%;
   color: var(--gray-1);
-}
-
-.sidebar-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: min-content;
-  gap: 50px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
 }
 
 .sidebar-content {
@@ -87,6 +83,14 @@ _____________________________________________ */
   gap: 10px;
   row-gap: 16px;
   padding-left: 3%;
+}
+
+.sidebar-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0;
 }
 
 .sidebar-content a,
@@ -120,6 +124,10 @@ _____________________________________________ */
 .sidebar-tools img,
 .sidebar-nav img {
   justify-self: center;
+}
+
+.sidebar-tools {
+  justify-self: flex-end;
 }
 
 .sidebar-header:hover {

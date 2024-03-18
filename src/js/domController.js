@@ -1,14 +1,16 @@
 import StarLogo from '../img/main/star-plus.svg';
 import EyeLogo from '../img/main/eye-plus.svg';
-import ShareLogo from '../img/main/share.svg';
+import DeleteLogo from '../img/main/delete.svg';
 import { projects } from './appController';
 
 const cardArea = document.querySelector('.content-left-cards');
 const projectArea = document.querySelector('.projects-wrapper');
+let currentLoadedProject = 0;
 
-function loadCards(todoArr) {
+function loadCards(project) {
   cardArea.innerHTML = '';
-  todoArr.forEach((todo) => {
+  currentLoadedProject = project.index;
+  project.todos.forEach((todo) => {
     const card = document.createElement('div');
     card.classList.add('card', 'main-card');
 
@@ -39,13 +41,15 @@ function loadCards(todoArr) {
     const eyeToolImg = document.createElement('img');
     eyeToolImg.src = EyeLogo;
     eyeTool.appendChild(eyeToolImg);
-    const shareTool = document.createElement('p');
-    const shareToolImg = document.createElement('img');
-    shareToolImg.src = ShareLogo;
-    shareTool.appendChild(shareToolImg);
+    const deleteTool = document.createElement('p');
+    const deleteToolImg = document.createElement('img');
+    deleteToolImg.id = 'deleteBtn';
+    deleteToolImg.dataset.todoIndex = todo.defaultProjectIndex;
+    deleteToolImg.src = DeleteLogo;
+    deleteTool.appendChild(deleteToolImg);
     cardTools.appendChild(starTool);
     cardTools.appendChild(eyeTool);
-    cardTools.appendChild(shareTool);
+    cardTools.appendChild(deleteTool);
 
     card.appendChild(cardContent);
     card.appendChild(cardTools);
@@ -68,4 +72,4 @@ function loadProjects(projectArr) {
   });
 }
 
-export { loadCards, loadProjects };
+export { loadCards, loadProjects, currentLoadedProject };

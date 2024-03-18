@@ -1,6 +1,6 @@
 import { Todo } from './todo';
 import { Project } from './projects';
-import { loadCards, loadProjects } from './domController';
+import { loadCards, loadProjects, currentLoadedProject } from './domController';
 
 const todos = [];
 const projects = [new Project('All Your', 'This is the default project')];
@@ -16,7 +16,7 @@ function createTodo() {
       projects[newTodo.project].todos.push(newTodo);
     }
   }
-  loadCards(todos);
+  loadCards(projects[0]);
 }
 
 function moveTodo(todo, project) {
@@ -35,6 +35,26 @@ function moveTodo(todo, project) {
   todo.project = project.index;
 }
 
+function removeTodo(todo) {
+  todos.splice(todo.defaultProjectIndex, 1);
+  todos.forEach((newTodo) => {
+    if (newTodo.defaultProjectIndex >= todo.defaultProjectIndex) {
+      newTodo.defaultProjectIndex--;
+    }
+  });
+  projects[0].todos.splice(todo.defaultProjectIndex, 1);
+
+  if (todo.project > 0) {
+    projects[todo.project].todos.splice(todo.currentProjectIndex, 1);
+    projects[todo.project].todos.forEach((newTodo) => {
+      if (newTodo.currentProjectIndex >= todo.currentProjectIndex) {
+        newTodo.currentProjectIndex--;
+      }
+    });
+  }
+  loadCards(projects[currentLoadedProject]);
+}
+
 function createProject() {
   const newProject = new Project(...arguments);
   projects.push(newProject);
@@ -42,4 +62,4 @@ function createProject() {
   loadProjects(projects);
 }
 
-export { createTodo, createProject, moveTodo, todos, projects };
+export { createTodo, createProject, removeTodo, moveTodo, todos, projects };

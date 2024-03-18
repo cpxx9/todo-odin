@@ -78,11 +78,14 @@ _____________________________________________ */
 }
 
 .sidebar-content {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  row-gap: 16px;
   padding-left: 3%;
+}
+
+.sidebar-content.sidebar-header {
+  flex-direction: row;
 }
 
 .sidebar-content-wrapper {
@@ -91,6 +94,12 @@ _____________________________________________ */
   flex-direction: column;
   justify-content: space-between;
   padding: 40px 0;
+  padding-left: 3%;
+}
+
+.nav-wrapper {
+  display: flex;
+  gap: 16px;
 }
 
 .sidebar-content a,
@@ -114,6 +123,10 @@ _____________________________________________ */
 .sidebar-content a:hover {
   color: var(--gray-2);
   scale: 1.1;
+}
+
+.sidebar-header {
+  align-items: center;
 }
 
 .sidebar-header img {

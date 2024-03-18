@@ -300,6 +300,7 @@ _____________________________________________ */
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr;
   padding: 0 2vw;
+  padding-bottom: 2vw;
 }
 
 .content-left-cards {
@@ -334,6 +335,10 @@ _____________________________________________ */
   padding: 0;
 }
 
+.card-content .card-project-title {
+  font-size: 0.9rem;
+}
+
 .card-content h3 {
   font-size: 1rem;
 }
@@ -351,74 +356,6 @@ _____________________________________________ */
 .card-tools p:hover {
   opacity: 0.5;
   scale: 1.2;
-  cursor: pointer;
-}
-
-.main-content-right {
-  display: grid;
-  grid-template-rows: min-content 3fr min-content 3fr;
-  padding-right: 2vw;
-}
-
-.main-content-right h4 {
-  font-weight: bolder;
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0;
-}
-
-.main-content-right p {
-  text-overflow: ellipsis;
-  font-size: 0.8rem;
-  line-height: 0.9rem;
-  margin: 0;
-  padding: 0;
-}
-
-.announcement-card,
-.trending-card {
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: repeat(auto-fit, 1fr);
-}
-
-.announcement-card div {
-  margin: 0 2vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.announcement-card div:nth-child(1) {
-  border-bottom: 1px solid var(--gray-m);
-}
-
-.announcement-card div:nth-child(3) {
-  border-top: 1px solid var(--gray-m);
-}
-
-.trending-card div {
-  margin: 0 2vh;
-  display: flex;
-  align-items: center;
-}
-
-.trending-card div div {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.trending-card div img {
-  width: 3vw;
-  height: 3vw;
-}
-
-.announcement-card div:hover,
-.trending-card div:hover {
-  background-color: var(--gray-2);
-  border-radius: 10px;
-  opacity: 0.8;
   cursor: pointer;
 }
 

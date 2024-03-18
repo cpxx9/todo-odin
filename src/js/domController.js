@@ -21,12 +21,13 @@ function loadCards(todoArr) {
       cardPara.textContent = todo.description;
     }
     cardContent.appendChild(cardTitle);
-    cardContent.appendChild(cardPara);
     if (todo.project !== 0) {
       const cardProject = document.createElement('p');
+      cardProject.classList.add('card-project-title');
       cardProject.textContent = `Project: ${projects[todo.project].title}`;
       cardContent.appendChild(cardProject);
     }
+    cardContent.appendChild(cardPara);
 
     const cardTools = document.createElement('div');
     cardTools.classList.add('card-tools');

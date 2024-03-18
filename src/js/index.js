@@ -30,9 +30,6 @@ createTodo('Test2', 1, '3/19/2022', 3, 'Test todo 3');
 createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
 createTodo('Skip2', 2, '3/21/2022', 5, 'Test todo 5');
 
-projects[1].addTodo(todos[2]);
-projects[1].removeTodo(0);
-
 console.log(projects);
 console.log(todos);
 

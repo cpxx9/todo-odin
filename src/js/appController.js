@@ -3,7 +3,7 @@ import { Project } from './projects';
 import { loadCards, loadProjects } from './domController';
 
 const todos = [];
-const projects = [new Project('Default', 'This is the default project')];
+const projects = [new Project('All Your', 'This is the default project')];
 
 function createTodo() {
   const newTodo = new Todo(...arguments);

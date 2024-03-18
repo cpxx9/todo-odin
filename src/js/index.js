@@ -13,6 +13,10 @@ document.addEventListener('click', function (e) {
   const target = e.target.closest('.project-nav-btn');
 
   if (target) {
+    const projectDOMTitle = document.querySelector('#projectTitle');
+    projectDOMTitle.textContent = `${
+      projects[e.target.dataset.projectIndex].title
+    } Todos`;
     loadCards(projects[e.target.dataset.projectIndex].todos);
   }
 });

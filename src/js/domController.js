@@ -47,6 +47,9 @@ function loadCards(todoArr) {
 function loadProjects(projectArr) {
   projectArea.innerHTML = '';
   projectArr.forEach((project) => {
+    if (project.index === 0) {
+      return;
+    }
     const projectNav = document.createElement('p');
     projectNav.textContent = project.title;
     projectNav.dataset.projectIndex = project.index;

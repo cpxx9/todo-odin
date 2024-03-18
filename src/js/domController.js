@@ -1,5 +1,5 @@
-import StarLogo from '../img/main/star-plus.svg';
-import EyeLogo from '../img/main/eye-plus.svg';
+import EditLogo from '../img/main/edit.svg';
+import CancelLogo from '../img/main/cancel.svg';
 import DeleteLogo from '../img/main/delete.svg';
 import { projects } from './appController';
 
@@ -33,14 +33,24 @@ function loadCards(project) {
 
     const cardTools = document.createElement('div');
     cardTools.classList.add('card-tools');
-    const starTool = document.createElement('p');
-    const starToolImg = document.createElement('img');
-    starToolImg.src = StarLogo;
-    starTool.appendChild(starToolImg);
-    const eyeTool = document.createElement('p');
-    const eyeToolImg = document.createElement('img');
-    eyeToolImg.src = EyeLogo;
-    eyeTool.appendChild(eyeToolImg);
+    const editTool = document.createElement('p');
+    const editToolImg = document.createElement('img');
+    editToolImg.id = 'editBtn';
+    editToolImg.dataset.defaultIndex = todo.defaultProjectIndex;
+    if (todo.currentProjectIndex >= 0) {
+      editToolImg.dataset.currentIndex = todo.currentProjectIndex;
+    }
+    editToolImg.src = EditLogo;
+    editTool.appendChild(editToolImg);
+    const cancelTool = document.createElement('p');
+    const cancelToolImg = document.createElement('img');
+    cancelToolImg.id = 'cancelBtn';
+    cancelToolImg.dataset.defaultIndex = todo.defaultProjectIndex;
+    if (todo.currentProjectIndex >= 0) {
+      cancelToolImg.dataset.currentIndex = todo.currentProjectIndex;
+    }
+    cancelToolImg.src = CancelLogo;
+    cancelTool.appendChild(cancelToolImg);
     const deleteTool = document.createElement('p');
     const deleteToolImg = document.createElement('img');
     deleteToolImg.id = 'deleteBtn';
@@ -50,8 +60,8 @@ function loadCards(project) {
     }
     deleteToolImg.src = DeleteLogo;
     deleteTool.appendChild(deleteToolImg);
-    cardTools.appendChild(starTool);
-    cardTools.appendChild(eyeTool);
+    cardTools.appendChild(editTool);
+    cardTools.appendChild(cancelTool);
     cardTools.appendChild(deleteTool);
 
     card.appendChild(cardContent);

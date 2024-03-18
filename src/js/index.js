@@ -7,7 +7,7 @@ import {
   todos,
   projects,
 } from './appController';
-import { loadCards, loadProjects, currentLoadedProject } from './domController';
+import { loadCards, loadProjects } from './domController';
 import '../css/style.css';
 
 document.addEventListener('click', function (e) {
@@ -19,6 +19,14 @@ document.addEventListener('click', function (e) {
       projects[e.target.dataset.projectIndex].title
     } Todos`;
     loadCards(projects[e.target.dataset.projectIndex]);
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('#cancelBtn');
+
+  if (target) {
+    console.log('cancel test');
   }
 });
 

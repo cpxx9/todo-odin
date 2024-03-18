@@ -5,8 +5,6 @@ import ShareLogo from '../img/main/share.svg';
 const cardArea = document.querySelector('.content-left-cards');
 const projectArea = document.querySelector('.projects-wrapper');
 
-console.log(cardArea);
-
 function loadCards(todoArr) {
   cardArea.innerHTML = '';
   todoArr.forEach((todo) => {
@@ -24,17 +22,14 @@ function loadCards(todoArr) {
     const cardTools = document.createElement('div');
     cardTools.classList.add('card-tools');
     const starTool = document.createElement('p');
-    starTool.href = '/';
     const starToolImg = document.createElement('img');
     starToolImg.src = StarLogo;
     starTool.appendChild(starToolImg);
     const eyeTool = document.createElement('p');
-    eyeTool.href = '/';
     const eyeToolImg = document.createElement('img');
     eyeToolImg.src = EyeLogo;
     eyeTool.appendChild(eyeToolImg);
     const shareTool = document.createElement('p');
-    shareTool.href = '/';
     const shareToolImg = document.createElement('img');
     shareToolImg.src = ShareLogo;
     shareTool.appendChild(shareToolImg);

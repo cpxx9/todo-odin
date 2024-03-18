@@ -712,6 +712,72 @@ function createProject() {
   loadProjects(projects);
 }
 
+;// CONCATENATED MODULE: ./src/img/header/bell-ring-outline.svg
+const bell_ring_outline_namespaceObject = __webpack_require__.p + "bell-ring-outline.svg";
+;// CONCATENATED MODULE: ./src/img/header/search.svg
+const search_namespaceObject = __webpack_require__.p + "search.svg";
+;// CONCATENATED MODULE: ./src/img/header/user-logo.svg
+const user_logo_namespaceObject = __webpack_require__.p + "user-logo.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/home.svg
+const home_namespaceObject = __webpack_require__.p + "home.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/main-logo.svg
+const main_logo_namespaceObject = __webpack_require__.p + "main-logo.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/privacy.svg
+const privacy_namespaceObject = __webpack_require__.p + "privacy.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/projects.svg
+const sidebar_projects_namespaceObject = __webpack_require__.p + "projects.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/settings.svg
+const settings_namespaceObject = __webpack_require__.p + "settings.svg";
+;// CONCATENATED MODULE: ./src/img/sidebar/support.svg
+const support_namespaceObject = __webpack_require__.p + "support.svg";
+;// CONCATENATED MODULE: ./src/img/icon-logo-github.png
+const icon_logo_github_namespaceObject = __webpack_require__.p + "icon-logo-github.png";
+;// CONCATENATED MODULE: ./src/img/icon-logo-instagram.png
+const icon_logo_instagram_namespaceObject = __webpack_require__.p + "icon-logo-instagram.png";
+;// CONCATENATED MODULE: ./src/img/icon-logo-linkedin.png
+const icon_logo_linkedin_namespaceObject = __webpack_require__.p + "icon-logo-linkedin.png";
+;// CONCATENATED MODULE: ./src/js/loadImages.js
+
+
+
+
+
+
+
+
+
+
+
+
+function loadImages() {
+  var bell = document.querySelector('#bell');
+  bell.src = bell_ring_outline_namespaceObject;
+  var search = document.querySelector('#search');
+  search.src = search_namespaceObject;
+  var userLogo = document.querySelector('#userLogo');
+  userLogo.src = user_logo_namespaceObject;
+  var userLogo2 = document.querySelector('#userLogo2');
+  userLogo2.src = user_logo_namespaceObject;
+  var home = document.querySelector('#home');
+  home.src = home_namespaceObject;
+  var mainLogo = document.querySelector('#mainLogo');
+  mainLogo.src = main_logo_namespaceObject;
+  var privacy = document.querySelector('#privacy');
+  privacy.src = privacy_namespaceObject;
+  var projects = document.querySelector('#projects');
+  projects.src = sidebar_projects_namespaceObject;
+  var settings = document.querySelector('#settings');
+  settings.src = settings_namespaceObject;
+  var support = document.querySelector('#support');
+  support.src = support_namespaceObject;
+  var github = document.querySelector('#github');
+  github.src = icon_logo_github_namespaceObject;
+  var instagram = document.querySelector('#instagram');
+  instagram.src = icon_logo_instagram_namespaceObject;
+  var linkedIn = document.querySelector('#linkedIn');
+  linkedIn.src = icon_logo_linkedin_namespaceObject;
+}
+
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
 var injectStylesIntoStyleTag = __webpack_require__(72);
 var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
@@ -767,6 +833,7 @@ var update = injectStylesIntoStyleTag_default()(style/* default */.A, options);
 
 
 
+
 document.addEventListener('click', function (e) {
   var target = e.target.closest('.project-nav-btn');
   if (target) {
@@ -798,10 +865,11 @@ createTodo('Default Test', 0, '3/18/2022', 2, 'Test todo 2');
 createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
 console.log(projects);
 console.log(todos);
+loadImages();
 loadCards(projects[0]);
 loadProjects(projects);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle627b8751541708244391.js.map
+//# sourceMappingURL=bundled75d5097c751eaf39532.js.map

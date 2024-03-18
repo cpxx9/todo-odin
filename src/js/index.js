@@ -26,9 +26,11 @@ document.addEventListener('click', function (e) {
   const target = e.target.closest('#deleteBtn');
 
   if (target) {
-    removeTodo(todos[e.target.dataset.todoIndex]);
-    console.log(todos);
-    console.log(projects);
+    if (confirm('Are you sure you want to delete this card?')) {
+      removeTodo(todos[e.target.dataset.todoIndex]);
+      console.log(todos);
+      console.log(projects);
+    }
   }
 });
 

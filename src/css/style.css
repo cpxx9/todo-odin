@@ -102,7 +102,7 @@ _____________________________________________ */
   gap: 16px;
 }
 
-.sidebar-content a,
+.sidebar-content p,
 .sidebar-content h1 {
   margin: 0;
   text-align: start;
@@ -113,17 +113,18 @@ _____________________________________________ */
   font-weight: bolder;
 }
 
-.sidebar-content a {
+.sidebar-content p {
   font-weight: bold;
   font-size: 1.2rem;
   text-decoration: none;
   color: var(--gray-1);
 }
 
-.sidebar-content a:hover,
-.projects-wrapper a:hover {
+.sidebar-content p:hover,
+.projects-wrapper p:hover {
   color: var(--gray-2);
   scale: 1.1;
+  cursor: pointer;
 }
 
 .sidebar-header {
@@ -155,7 +156,7 @@ _____________________________________________ */
   display: none;
 }
 
-.projects-wrapper a {
+.projects-wrapper p {
   font-size: 1.1rem;
   font-weight: normal;
   padding: 3px 5px;
@@ -328,7 +329,7 @@ _____________________________________________ */
 
 .card-content h3,
 .card-content p,
-.card-content a {
+.card-content p {
   margin: 0;
   padding: 0;
 }
@@ -347,9 +348,10 @@ _____________________________________________ */
   gap: 20px;
 }
 
-.card-tools a:hover {
+.card-tools p:hover {
   opacity: 0.5;
   scale: 1.2;
+  cursor: pointer;
 }
 
 .main-content-right {
@@ -422,11 +424,11 @@ _____________________________________________ */
 
 /*FOOTER
 ------------------------------*/
-footer a {
+footer p {
   color: #bcaa96;
 }
 
-footer a:hover {
+footer p:hover {
   color: #3c8453;
 }
 

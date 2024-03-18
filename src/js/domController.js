@@ -44,7 +44,10 @@ function loadCards(project) {
     const deleteTool = document.createElement('p');
     const deleteToolImg = document.createElement('img');
     deleteToolImg.id = 'deleteBtn';
-    deleteToolImg.dataset.todoIndex = todo.defaultProjectIndex;
+    deleteToolImg.dataset.defaultIndex = todo.defaultProjectIndex;
+    if (todo.currentProjectIndex >= 0) {
+      deleteToolImg.dataset.currentIndex = todo.currentProjectIndex;
+    }
     deleteToolImg.src = DeleteLogo;
     deleteTool.appendChild(deleteToolImg);
     cardTools.appendChild(starTool);

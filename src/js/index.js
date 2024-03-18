@@ -7,7 +7,7 @@ import {
   todos,
   projects,
 } from './appController';
-import { loadCards, loadProjects } from './domController';
+import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import '../css/style.css';
 
 document.addEventListener('click', function (e) {
@@ -27,7 +27,7 @@ document.addEventListener('click', function (e) {
 
   if (target) {
     if (confirm('Are you sure you want to delete this card?')) {
-      removeTodo(todos[e.target.dataset.todoIndex]);
+      removeTodo(todos[e.target.dataset.defaultIndex]);
       console.log(todos);
       console.log(projects);
     }

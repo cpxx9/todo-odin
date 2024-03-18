@@ -6,8 +6,16 @@ import {
   todos,
   projects,
 } from './appController';
-import { loadCards } from './domController';
+import { loadCards, loadProjects } from './domController';
 import '../css/style.css';
+
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('.project-nav-btn');
+
+  if (target) {
+    loadCards(projects[e.target.dataset.projectIndex].todos);
+  }
+});
 
 createProject('Work', 'This is a test project', 'red');
 createProject('Personal', 'This is a test project 1', 'green');
@@ -25,4 +33,4 @@ console.log(projects);
 console.log(todos);
 
 loadCards(todos);
-loadCards(projects[1].todos);
+loadProjects(projects);

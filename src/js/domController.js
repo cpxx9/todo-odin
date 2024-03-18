@@ -3,6 +3,7 @@ import EyeLogo from '../img/main/eye-plus.svg';
 import ShareLogo from '../img/main/share.svg';
 
 const cardArea = document.querySelector('.content-left-cards');
+const projectArea = document.querySelector('.projects-wrapper');
 
 console.log(cardArea);
 
@@ -48,4 +49,15 @@ function loadCards(todoArr) {
   });
 }
 
-export { loadCards };
+function loadProjects(projectArr) {
+  projectArea.innerHTML = '';
+  projectArr.forEach((project) => {
+    const projectNav = document.createElement('p');
+    projectNav.textContent = project.title;
+    projectNav.dataset.projectIndex = project.index;
+    projectNav.classList.add('project-nav-btn');
+    projectArea.appendChild(projectNav);
+  });
+}
+
+export { loadCards, loadProjects };

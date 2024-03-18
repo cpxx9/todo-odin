@@ -1,5 +1,6 @@
 import { Todo } from './todo';
 import { Project } from './projects';
+import { loadCards, loadProjects } from './domController';
 
 const todos = [];
 const projects = [new Project('Default', 'This is the default project')];
@@ -15,6 +16,7 @@ function createTodo() {
       projects[newTodo.project].todos.push(newTodo);
     }
   }
+  loadCards(todos);
 }
 
 function moveTodo(todo, project) {
@@ -37,6 +39,7 @@ function createProject() {
   const newProject = new Project(...arguments);
   projects.push(newProject);
   newProject.index = projects.length - 1;
+  loadProjects(projects);
 }
 
 export { createTodo, createProject, moveTodo, todos, projects };

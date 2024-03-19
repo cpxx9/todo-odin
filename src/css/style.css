@@ -387,9 +387,6 @@ ul.form-list {
   list-style: none;
 }
 
-li.form-list-item {
-}
-
 .edit-form {
   background-color: var(--gray-m);
   border-radius: 5px;

@@ -505,7 +505,7 @@ var Todo = /*#__PURE__*/_createClass(function Todo() {
     this.project = arguments[1];
   }
   if (arguments.length > 2) {
-    this.dueDate = arguments[2];
+    this.date = arguments[2];
   }
   if (arguments.length > 3) {
     this.priority = arguments[3];
@@ -656,22 +656,62 @@ function loadProjects(projectArr) {
 
 
 
+var currentTodo;
+var editFormWrapper = document.querySelector('#editFormWrapper');
+var editForm = document.querySelector('#editForm');
+var pushChnageBtn = document.querySelector('#formSubmitBtn');
 function formControls(todo) {
-  var editFormWrapper = document.querySelector('#editFormWrapper');
-  var editForm = document.querySelector('#editForm');
+  currentTodo = todo;
+  pushChnageBtn.addEventListener('click', pushTodoEdits);
   editFormWrapper.classList.add('form-open');
-  loadProjectOptions();
+  loadFormOptions(todo);
+  fillFormFields(editForm, todo);
   var hideBtn = document.querySelector('#hideBtn');
   hideBtn.addEventListener('click', function () {
     editFormWrapper.classList.remove('form-open');
-    setInterval(resetForm, 500);
-    function resetForm() {
-      editForm.reset();
+  });
+}
+function pushTodoEdits(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  Array.from(editForm).forEach(function (element) {
+    var todoID = String(element.id).slice(4).toLowerCase();
+    if (todoID === 'btn' || todoID === 'submitbtn') {
+      return;
+    } else if (todoID === 'project') {
+      currentTodo.project = Number(element.value);
+      projects[currentTodo.project].addTodo(currentTodo);
+      // moveTodo(currentTodo, projects[Number(element.value)]);
+    } else if (todoID === 'priority') {
+      currentTodo[todoID] = Number(element.value);
+    } else {
+      currentTodo[todoID] = element.value;
+    }
+  });
+  loadCards(projects[currentLoadedProject]);
+  console.log(todos);
+  editFormWrapper.classList.remove('form-open');
+}
+function loadFormOptions(todo) {
+  var projectFormInput = document.querySelector('#todoProject');
+  var formTitle = document.querySelector('#formTitle');
+  formTitle.textContent = todo.title;
+  loadProjectOptions(projectFormInput);
+  projectFormInput.selectedIndex = todo.project;
+}
+function fillFormFields(form, todo) {
+  Array.from(form).forEach(function (element) {
+    var todoID = String(element.id).slice(4).toLowerCase();
+    if (todoID === 'btn') {
+      return;
+    }
+    if (todo[todoID]) {
+      element.value = String(todo[todoID]);
     }
   });
 }
-function loadProjectOptions() {
-  var projectFormInput = document.querySelector('#todoProject');
+function loadProjectOptions(formSelect) {
+  formSelect.innerHTML = '';
   projects.forEach(function (project) {
     var projectOption = document.createElement('option');
     projectOption.value = project.index;
@@ -680,7 +720,7 @@ function loadProjectOptions() {
     } else {
       projectOption.textContent = project.title;
     }
-    projectFormInput.appendChild(projectOption);
+    formSelect.appendChild(projectOption);
   });
 }
 
@@ -708,10 +748,6 @@ function createTodo() {
   loadCards(projects[0]);
 }
 function moveTodo(todo, project) {
-  if (project.index === 0) {
-    console.log('Already in default project!!');
-    return;
-  }
   projects[todo.project].todos.splice(todo.currentProjectIndex, 1);
   projects[todo.project].todos.forEach(function (newTodo) {
     if (newTodo.currentProjectIndex >= todo.currentProjectIndex) {
@@ -742,7 +778,6 @@ function removeTodo(todo) {
 }
 function editTodo(todo) {
   formControls(todo);
-  loadCards(projects[currentLoadedProject]);
 }
 function createProject() {
   var newProject = _construct(Project, Array.prototype.slice.call(arguments));
@@ -912,9 +947,9 @@ document.addEventListener('click', function (e) {
 });
 createProject('Work', 'This is a test project', 'red');
 createProject('Personal', 'This is a test project 1', 'green');
-createTodo('Test', 1, '3/17/2022', 1, 'Test todo 1');
-createTodo('Default Test', 0, '3/18/2022', 2, 'Test todo 2');
-createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
+createTodo('Test', 1, '2022-03-17', 1, 'Test todo 1');
+createTodo('Default Test', 0, '2022-03-18', 2, 'Test todo 2');
+createTodo('Skip', 2, '2022-03-19', 4, 'Test todo 4');
 loadImages();
 loadCards(projects[0]);
 loadProjects(projects);
@@ -922,4 +957,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3d0b5d7b8c49a11ee23b.js.map
+//# sourceMappingURL=bundle53c2f1a08bbf4e6559c7.js.map

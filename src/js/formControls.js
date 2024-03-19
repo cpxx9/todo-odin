@@ -9,10 +9,14 @@ import {
   projects,
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
-
+let currentTodo;
 function formControls(todo) {
+  currentTodo = todo;
   const editFormWrapper = document.querySelector('#editFormWrapper');
   const editForm = document.querySelector('#editForm');
+  const pushChnageBtn = document.querySelector('#formSubmitBtn');
+  pushChnageBtn.addEventListener('click', pushTodoEdits);
+
   editFormWrapper.classList.add('form-open');
 
   loadFormOptions(todo);
@@ -21,11 +25,14 @@ function formControls(todo) {
   const hideBtn = document.querySelector('#hideBtn');
   hideBtn.addEventListener('click', function () {
     editFormWrapper.classList.remove('form-open');
-    setInterval(resetForm, 500);
-    function resetForm() {
-      // editForm.reset();
-    }
   });
+}
+
+function pushTodoEdits(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  console.log(currentTodo);
+  editFormWrapper.classList.remove('form-open');
 }
 
 function loadFormOptions(todo) {
@@ -38,14 +45,11 @@ function loadFormOptions(todo) {
 }
 
 function fillFormFields(form, todo) {
-  console.log({ form });
-  console.log(todo);
   Array.from(form).forEach((element) => {
     const todoID = String(element.id).slice(4).toLowerCase();
     if (todoID === 'btn') {
       return;
     }
-    console.log(todo[todoID]);
     if (todo[todoID]) {
       element.value = String(todo[todoID]);
     }

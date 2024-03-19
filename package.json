@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "git": "git subtree push --prefix dist origin gh-pages"
+    "git": "git subtree push --prefix dist origin gh-pages",
+    "debug": "nodemon --inspect --watch config --watch src/js src/js/index.js"
   },
   "author": "CJP Labs <prattecole@gmail.com>",
   "license": "MIT",

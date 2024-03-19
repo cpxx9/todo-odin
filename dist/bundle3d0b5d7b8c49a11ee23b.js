@@ -651,10 +651,44 @@ function loadProjects(projectArr) {
   });
 }
 
+;// CONCATENATED MODULE: ./src/js/formControls.js
+
+
+
+
+function formControls(todo) {
+  var editFormWrapper = document.querySelector('#editFormWrapper');
+  var editForm = document.querySelector('#editForm');
+  editFormWrapper.classList.add('form-open');
+  loadProjectOptions();
+  var hideBtn = document.querySelector('#hideBtn');
+  hideBtn.addEventListener('click', function () {
+    editFormWrapper.classList.remove('form-open');
+    setInterval(resetForm, 500);
+    function resetForm() {
+      editForm.reset();
+    }
+  });
+}
+function loadProjectOptions() {
+  var projectFormInput = document.querySelector('#todoProject');
+  projects.forEach(function (project) {
+    var projectOption = document.createElement('option');
+    projectOption.value = project.index;
+    if (project.index === 0) {
+      projectOption.textContent = 'Main Project';
+    } else {
+      projectOption.textContent = project.title;
+    }
+    projectFormInput.appendChild(projectOption);
+  });
+}
+
 ;// CONCATENATED MODULE: ./src/js/appController.js
 function _construct(t, e, r) { if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments); var o = [null]; o.push.apply(o, e); var p = new (t.bind.apply(t, o))(); return r && _setPrototypeOf(p, r.prototype), p; }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -704,6 +738,10 @@ function removeTodo(todo) {
       }
     });
   }
+  loadCards(projects[currentLoadedProject]);
+}
+function editTodo(todo) {
+  formControls(todo);
   loadCards(projects[currentLoadedProject]);
 }
 function createProject() {
@@ -842,6 +880,12 @@ document.addEventListener('click', function (e) {
   }
 });
 document.addEventListener('click', function (e) {
+  var target = e.target.closest('#editBtn');
+  if (target) {
+    editTodo(todos[e.target.dataset.defaultIndex]);
+  }
+});
+document.addEventListener('click', function (e) {
   var target = e.target.closest('#cancelBtn');
   if (target) {
     if (!e.target.dataset.currentIndex && e.target.dataset.currentIndex !== 0) {
@@ -871,8 +915,6 @@ createProject('Personal', 'This is a test project 1', 'green');
 createTodo('Test', 1, '3/17/2022', 1, 'Test todo 1');
 createTodo('Default Test', 0, '3/18/2022', 2, 'Test todo 2');
 createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
-console.log(projects);
-console.log(todos);
 loadImages();
 loadCards(projects[0]);
 loadProjects(projects);
@@ -880,4 +922,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle11d9e66be6173aad7550.js.map
+//# sourceMappingURL=bundle3d0b5d7b8c49a11ee23b.js.map

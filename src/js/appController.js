@@ -1,6 +1,7 @@
 import { Todo } from './todo';
 import { Project } from './projects';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
+import { formControls } from './formControls';
 
 const todos = [];
 const projects = [new Project('All Your', 'This is the default project')];
@@ -55,6 +56,11 @@ function removeTodo(todo) {
   loadCards(projects[currentLoadedProject]);
 }
 
+function editTodo(todo) {
+  formControls(todo);
+  loadCards(projects[currentLoadedProject]);
+}
+
 function createProject() {
   const newProject = new Project(...arguments);
   projects.push(newProject);
@@ -62,4 +68,12 @@ function createProject() {
   loadProjects(projects);
 }
 
-export { createTodo, createProject, removeTodo, moveTodo, todos, projects };
+export {
+  createTodo,
+  createProject,
+  editTodo,
+  removeTodo,
+  moveTodo,
+  todos,
+  projects,
+};

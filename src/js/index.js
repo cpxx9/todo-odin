@@ -2,6 +2,7 @@
 import {
   createTodo,
   createProject,
+  editTodo,
   removeTodo,
   moveTodo,
   todos,
@@ -20,6 +21,14 @@ document.addEventListener('click', function (e) {
       projects[e.target.dataset.projectIndex].title
     } Todos`;
     loadCards(projects[e.target.dataset.projectIndex]);
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('#editBtn');
+
+  if (target) {
+    editTodo(todos[e.target.dataset.defaultIndex]);
   }
 });
 
@@ -64,9 +73,6 @@ createProject('Personal', 'This is a test project 1', 'green');
 createTodo('Test', 1, '3/17/2022', 1, 'Test todo 1');
 createTodo('Default Test', 0, '3/18/2022', 2, 'Test todo 2');
 createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
-
-console.log(projects);
-console.log(todos);
 
 loadImages();
 loadCards(projects[0]);

@@ -21,10 +21,6 @@ function createTodo() {
 }
 
 function moveTodo(todo, project) {
-  if (project.index === 0) {
-    console.log('Already in default project!!');
-    return;
-  }
   projects[todo.project].todos.splice(todo.currentProjectIndex, 1);
   projects[todo.project].todos.forEach((newTodo) => {
     if (newTodo.currentProjectIndex >= todo.currentProjectIndex) {
@@ -58,7 +54,6 @@ function removeTodo(todo) {
 
 function editTodo(todo) {
   formControls(todo);
-  loadCards(projects[currentLoadedProject]);
 }
 
 function createProject() {

@@ -70,9 +70,9 @@ document.addEventListener('click', function (e) {
 createProject('Work', 'This is a test project', 'red');
 createProject('Personal', 'This is a test project 1', 'green');
 
-createTodo('Test', 1, '3/17/2022', 1, 'Test todo 1');
-createTodo('Default Test', 0, '3/18/2022', 2, 'Test todo 2');
-createTodo('Skip', 2, '3/20/2022', 4, 'Test todo 4');
+createTodo('Test', 1, '2022-03-17', 1, 'Test todo 1');
+createTodo('Default Test', 0, '2022-03-18', 2, 'Test todo 2');
+createTodo('Skip', 2, '2022-03-19', 4, 'Test todo 4');
 
 loadImages();
 loadCards(projects[0]);

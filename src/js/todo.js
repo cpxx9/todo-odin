@@ -7,7 +7,7 @@ class Todo {
       this.project = arguments[1];
     }
     if (arguments.length > 2) {
-      this.dueDate = arguments[2];
+      this.date = arguments[2];
     }
     if (arguments.length > 3) {
       this.priority = arguments[3];

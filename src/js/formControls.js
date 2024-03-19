@@ -10,11 +10,11 @@ import {
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
 let currentTodo;
+const editFormWrapper = document.querySelector('#editFormWrapper');
+const editForm = document.querySelector('#editForm');
+const pushChnageBtn = document.querySelector('#formSubmitBtn');
 function formControls(todo) {
   currentTodo = todo;
-  const editFormWrapper = document.querySelector('#editFormWrapper');
-  const editForm = document.querySelector('#editForm');
-  const pushChnageBtn = document.querySelector('#formSubmitBtn');
   pushChnageBtn.addEventListener('click', pushTodoEdits);
 
   editFormWrapper.classList.add('form-open');
@@ -31,7 +31,22 @@ function formControls(todo) {
 function pushTodoEdits(e) {
   e.preventDefault();
   e.stopPropagation();
-  console.log(currentTodo);
+  Array.from(editForm).forEach((element) => {
+    const todoID = String(element.id).slice(4).toLowerCase();
+    if (todoID === 'btn' || todoID === 'submitbtn') {
+      return;
+    } else if (todoID === 'project') {
+      currentTodo.project = Number(element.value);
+      projects[currentTodo.project].addTodo(currentTodo);
+      // moveTodo(currentTodo, projects[Number(element.value)]);
+    } else if (todoID === 'priority') {
+      currentTodo[todoID] = Number(element.value);
+    } else {
+      currentTodo[todoID] = element.value;
+    }
+  });
+  loadCards(projects[currentLoadedProject]);
+  console.log(todos);
   editFormWrapper.classList.remove('form-open');
 }
 

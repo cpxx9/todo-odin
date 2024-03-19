@@ -48,6 +48,7 @@ function loadCards(project) {
     cancelToolImg.dataset.defaultIndex = todo.defaultProjectIndex;
     if (todo.currentProjectIndex >= 0) {
       cancelToolImg.dataset.currentIndex = todo.currentProjectIndex;
+      cancelToolImg.dataset.currentProject = todo.project;
     }
     cancelToolImg.src = CancelLogo;
     cancelTool.appendChild(cancelToolImg);

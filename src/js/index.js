@@ -7,7 +7,7 @@ import {
   todos,
   projects,
 } from './appController';
-import { loadCards, loadProjects } from './domController';
+import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import { loadImages } from './loadImages';
 import '../css/style.css';
 
@@ -27,7 +27,22 @@ document.addEventListener('click', function (e) {
   const target = e.target.closest('#cancelBtn');
 
   if (target) {
-    console.log('cancel test');
+    if (!e.target.dataset.currentIndex && e.target.dataset.currentIndex !== 0) {
+      alert(
+        'Cannot remove from main project!\nUse delete if you would like to fully remove it!'
+      );
+    } else {
+      if (
+        confirm('Are you sure you want to remove this todo from the project?')
+      ) {
+        projects[e.target.dataset.currentProject].removeTodo(
+          e.target.dataset.currentIndex
+        );
+        loadCards(projects[currentLoadedProject]);
+        console.log(todos);
+        console.log(projects);
+      }
+    }
   }
 });
 
@@ -35,7 +50,7 @@ document.addEventListener('click', function (e) {
   const target = e.target.closest('#deleteBtn');
 
   if (target) {
-    if (confirm('Are you sure you want to delete this card?')) {
+    if (confirm('Are you sure you want to delete this todo?')) {
       removeTodo(todos[e.target.dataset.defaultIndex]);
       console.log(todos);
       console.log(projects);

@@ -616,6 +616,7 @@ function loadCards(project) {
     cancelToolImg.dataset.defaultIndex = todo.defaultProjectIndex;
     if (todo.currentProjectIndex >= 0) {
       cancelToolImg.dataset.currentIndex = todo.currentProjectIndex;
+      cancelToolImg.dataset.currentProject = todo.project;
     }
     cancelToolImg.src = cancel_namespaceObject;
     cancelTool.appendChild(cancelToolImg);
@@ -843,13 +844,22 @@ document.addEventListener('click', function (e) {
 document.addEventListener('click', function (e) {
   var target = e.target.closest('#cancelBtn');
   if (target) {
-    console.log('cancel test');
+    if (!e.target.dataset.currentIndex && e.target.dataset.currentIndex !== 0) {
+      alert('Cannot remove from main project!\nUse delete if you would like to fully remove it!');
+    } else {
+      if (confirm('Are you sure you want to remove this todo from the project?')) {
+        projects[e.target.dataset.currentProject].removeTodo(e.target.dataset.currentIndex);
+        loadCards(projects[currentLoadedProject]);
+        console.log(todos);
+        console.log(projects);
+      }
+    }
   }
 });
 document.addEventListener('click', function (e) {
   var target = e.target.closest('#deleteBtn');
   if (target) {
-    if (confirm('Are you sure you want to delete this card?')) {
+    if (confirm('Are you sure you want to delete this todo?')) {
       removeTodo(todos[e.target.dataset.defaultIndex]);
       console.log(todos);
       console.log(projects);
@@ -870,4 +880,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef85dc98643a716bc5369.js.map
+//# sourceMappingURL=bundle11d9e66be6173aad7550.js.map

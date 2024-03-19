@@ -93,18 +93,13 @@
     <div class="form-popup" id="editFormWrapper">
       <form method="get" class="edit-form" id="editForm">
         <h1>New todo</h1>
-        <button type='button' class='btn delete-book hide-form'>-</button>
-        <label class="text-label" for="bookTitle">Title</label>
-        <input class="text-input" type="text" required name="bookTitle" id="bookTitle"
-          placeholder="Title of the book" />
+        <button type='button' id="hideBtn">-</button>
+        <label class="text-label" for="todoTitle">Title</label>
+        <input class="text-input" type="text" name="todoTitle" id="todoTitle" placeholder="Title for your todo" />
 
-        <label class="text-label" for="bookAuthor">Author</label>
-        <input class="text-input" type="text" required name="bookAuthor" id="bookAuthor"
-          placeholder="Author of the book" />
-
-        <label class="text-label" for="bookPages">Pages</label>
-        <input class="text-input" type="number" required name="bookPages" id="bookPages"
-          placeholder="Pages in the book" />
+        <label class="text-label" for="todoPages">Priority</label>
+        <input class="text-input" type="number" min="0" max="5" required name="todoPages" id="todoPages"
+          placeholder="Todo priority" />
 
         <fieldset>
           <legend>Have you read the book yet?</legend>

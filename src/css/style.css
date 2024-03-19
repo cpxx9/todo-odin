@@ -381,6 +381,15 @@ _____________________________________________ */
   justify-content: center;
 }
 
+ul.form-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li.form-list-item {
+}
+
 .edit-form {
   background-color: var(--gray-m);
   border-radius: 5px;

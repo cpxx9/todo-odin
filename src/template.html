@@ -94,28 +94,29 @@
       <form method="get" class="edit-form" id="editForm">
         <h1>New todo</h1>
         <button type='button' id="hideBtn">-</button>
-        <label class="text-label" for="todoTitle">Title</label>
-        <input class="text-input" type="text" name="todoTitle" id="todoTitle" placeholder="Title for your todo" />
-
-        <label class="text-label" for="todoPages">Priority</label>
-        <input class="text-input" type="number" min="0" max="5" required name="todoPages" id="todoPages"
-          placeholder="Todo priority" />
-
-        <fieldset>
-          <legend>Have you read the book yet?</legend>
-
-          <div class="hasRead-options">
-            <div>
-              <label class="radio-label" for="true">Yes I have read it</label>
-              <input type="radio" name="hasRead" id="true" value="true" />
-            </div>
-
-            <div>
-              <label class="radio-label" for="true">No I have not</label>
-              <input type="radio" name="hasRead" id="false" value="false" checked />
-            </div>
-          </div>
-        </fieldset>
+        <ul class="form-list">
+          <li class="form-list-item">
+            <label class="text-label" for="todoTitle">Title</label>
+            <input type="text" name="todoTitle" id="todoTitle" placeholder="Title for your todo" />
+          </li>
+          <li class="form-list-item">
+            <label class="text-label" for="todoDescription">Description</label>
+            <textarea name="todoDescription" id="todoDescription" cols="30" rows="5"></textarea>
+          </li>
+          <li class="form-list-item">
+            <label class="text-label" for="todoPriority">Priority</label>
+            <input type="number" min="0" max="5" name="todoPriority" id="todoPriority" placeholder="Priority" />
+          </li>
+          <li class="form-list-item">
+            <label class="text-label" for="todoDate">Due date</label>
+            <input type="date" name="todoDate" id="todoDate" />
+          </li>
+          <li class="form-list-item">
+            <label class="text-label" for="todoProject">Project</label>
+            <select name="todoProject" id="todoProject">
+            </select>
+          </li>
+        </ul>
         <button class="btn add-book" type="submit">ADD</button>
       </form>
     </div>

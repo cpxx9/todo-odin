@@ -17,7 +17,7 @@ function createTodo() {
       projects[newTodo.project].todos.push(newTodo);
     }
   }
-  loadCards(projects[0]);
+  loadCards(projects[currentLoadedProject]);
 }
 
 function moveTodo(todo, project) {

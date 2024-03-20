@@ -22,6 +22,10 @@ function formControls(todo) {
   if (todo) {
     loadFormOptions(todo);
     fillFormFields(editForm, todo);
+  } else {
+    editForm.reset();
+    const formTitle = document.querySelector('#formTitle');
+    formTitle.textContent = 'New todo';
   }
 
   const hideBtn = document.querySelector('#hideBtn');

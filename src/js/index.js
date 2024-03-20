@@ -3,7 +3,6 @@ import {
   createTodo,
   createProject,
   removeTodo,
-  moveTodo,
   todos,
   projects,
 } from './appController';

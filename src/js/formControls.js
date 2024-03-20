@@ -19,8 +19,10 @@ function formControls(todo) {
 
   editFormWrapper.classList.add('form-open');
 
-  loadFormOptions(todo);
-  fillFormFields(editForm, todo);
+  if (todo) {
+    loadFormOptions(todo);
+    fillFormFields(editForm, todo);
+  }
 
   const hideBtn = document.querySelector('#hideBtn');
   hideBtn.addEventListener('click', function () {

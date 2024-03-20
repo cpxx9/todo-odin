@@ -2,13 +2,13 @@
 import {
   createTodo,
   createProject,
-  editTodo,
   removeTodo,
   moveTodo,
   todos,
   projects,
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
+import { formControls } from './formControls';
 import { loadImages } from './loadImages';
 import '../css/style.css';
 
@@ -25,10 +25,18 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('click', function (e) {
+  const target = e.target.closest('#newTodoBtn');
+
+  if (target) {
+    formControls();
+  }
+});
+
+document.addEventListener('click', function (e) {
   const target = e.target.closest('#editBtn');
 
   if (target) {
-    editTodo(todos[e.target.dataset.defaultIndex]);
+    formControls(todos[e.target.dataset.defaultIndex]);
   }
 });
 

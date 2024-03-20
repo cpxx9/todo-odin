@@ -52,10 +52,6 @@ function removeTodo(todo) {
   loadCards(projects[currentLoadedProject]);
 }
 
-function editTodo(todo) {
-  formControls(todo);
-}
-
 function createProject() {
   const newProject = new Project(...arguments);
   projects.push(newProject);
@@ -63,12 +59,4 @@ function createProject() {
   loadProjects(projects);
 }
 
-export {
-  createTodo,
-  createProject,
-  editTodo,
-  removeTodo,
-  moveTodo,
-  todos,
-  projects,
-};
+export { createTodo, createProject, removeTodo, moveTodo, todos, projects };

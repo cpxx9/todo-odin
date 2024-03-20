@@ -1,8 +1,11 @@
-'use strict';
+"use strict";
 class Todo {
   constructor() {
     this.title = arguments[0];
     this.project = 0;
+    this.date = "";
+    this.priority = "";
+    this.description = "";
     if (arguments.length > 1) {
       this.project = arguments[1];
     }

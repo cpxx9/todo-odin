@@ -36,8 +36,15 @@ function pushTodoEdits(e) {
     if (todoID === 'btn' || todoID === 'submitbtn') {
       return;
     } else if (todoID === 'project') {
+      if (currentTodo.project !== 0) {
+        projects[currentTodo.project].removeTodo(
+          currentTodo.currentProjectIndex
+        );
+      }
       currentTodo.project = Number(element.value);
-      projects[currentTodo.project].addTodo(currentTodo);
+      if (currentTodo.project !== 0) {
+        projects[currentTodo.project].addTodo(currentTodo);
+      }
       // moveTodo(currentTodo, projects[Number(element.value)]);
     } else if (todoID === 'priority') {
       currentTodo[todoID] = Number(element.value);
@@ -47,6 +54,7 @@ function pushTodoEdits(e) {
   });
   loadCards(projects[currentLoadedProject]);
   console.log(todos);
+  console.log(projects);
   editFormWrapper.classList.remove('form-open');
 }
 

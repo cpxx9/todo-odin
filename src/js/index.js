@@ -11,10 +11,6 @@ import { formControls } from './formControls';
 import { projectFormControls } from './projectFormControls';
 import { loadImages } from './loadImages';
 import '../css/style.css';
-import Favicon from '../img/favicon.svg';
-
-const faviconElm = document.querySelector('#favicon');
-faviconElm.href = Favicon;
 
 document.addEventListener('click', function (e) {
   const target = e.target.closest('.project-nav-btn');

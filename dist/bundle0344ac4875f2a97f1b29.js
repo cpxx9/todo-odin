@@ -977,8 +977,6 @@ var update = injectStylesIntoStyleTag_default()(style/* default */.A, options);
 
        /* harmony default export */ const css_style = (style/* default */.A && style/* default */.A.locals ? style/* default */.A.locals : undefined);
 
-;// CONCATENATED MODULE: ./src/img/favicon.svg
-const favicon_namespaceObject = __webpack_require__.p + "favicon.svg";
 ;// CONCATENATED MODULE: ./src/js/index.js
 
 
@@ -988,9 +986,6 @@ const favicon_namespaceObject = __webpack_require__.p + "favicon.svg";
 
 
 
-
-var faviconElm = document.querySelector('#favicon');
-faviconElm.href = favicon_namespaceObject;
 document.addEventListener('click', function (e) {
   var target = e.target.closest('.project-nav-btn');
   if (target) {
@@ -1054,4 +1049,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlea9dd711db73ea7fbd549.js.map
+//# sourceMappingURL=bundle0344ac4875f2a97f1b29.js.map

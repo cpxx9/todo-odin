@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    bundle: path.resolve(__dirname, 'src/js/index.js')
+    bundle: path.resolve(__dirname, 'src/js/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,6 +43,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: path.resolve(__dirname, 'src/img/favicon.svg'),
       title: 'You-Do',
       filename: 'index.html',
       template: 'src/template.html',

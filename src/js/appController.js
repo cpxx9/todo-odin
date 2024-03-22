@@ -4,7 +4,9 @@ import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import { formControls } from './formControls';
 
 const todos = [];
-const projects = [new Project('All Your', 'This is the default project')];
+const projects = [
+  new Project('All Your', 'This is the default project', '#FF0000'),
+];
 
 function createTodo() {
   const newTodo = new Todo(...arguments);

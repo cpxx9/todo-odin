@@ -13,6 +13,7 @@ function loadCards(project) {
   project.todos.forEach((todo) => {
     const card = document.createElement('div');
     card.classList.add('card', 'main-card');
+    card.style.borderLeftColor = projects[todo.project].color;
 
     const cardContent = document.createElement('div');
     cardContent.classList.add('card-content');

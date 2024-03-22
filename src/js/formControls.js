@@ -98,8 +98,6 @@ function pushTodoEdits(e) {
   }
   loadCards(projects[currentLoadedProject]);
   editFormWrapper.classList.remove('form-open');
-  console.log(todos);
-  console.log(projects);
 }
 
 function loadFormOptions(todo) {

@@ -781,7 +781,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Objec
 
 
 var todos = [];
-var projects = [new Project("All Your", "This is the default project")];
+var projects = [new Project('All Your', 'This is the default project')];
 function createTodo() {
   var newTodo = _construct(Todo, Array.prototype.slice.call(arguments));
   todos.push(newTodo);
@@ -835,9 +835,11 @@ function createProject() {
 ;// CONCATENATED MODULE: ./src/js/projectFormControls.js
 
 
+
+
 var projectFormWrapper = document.querySelector('#projectFormWrapper');
 var projectForm = document.querySelector('#projectForm');
-var projectTitle = document.querySelector('#projectTitle');
+var projectTitle = document.querySelector('#projectTitleInput');
 var projectDescription = document.querySelector('#projectDescription');
 var projectColor = document.querySelector('#projectColor');
 var hideBtn = document.querySelector('#projectHideBtn');
@@ -845,22 +847,33 @@ var submitBtn = document.querySelector('#projectFormSubmitBtn');
 submitBtn.addEventListener('click', submitProjectForm);
 hideBtn.addEventListener('click', hideProjectForm);
 function projectFormControls() {
+  projectForm.reset();
   projectColor.value = "#".concat(Math.floor(Math.random() * 16777215).toString(16));
-  console.log(projectColor.value);
   projectFormWrapper.classList.add('form-open');
 }
 function hideProjectForm(e) {
   e.preventDefault();
   e.stopPropagation();
-  console.log('test');
   projectFormWrapper.classList.remove('form-open');
-  projectTitle.value = '';
-  projectDescription.value = '';
 }
 function submitProjectForm(e) {
   e.preventDefault();
   e.stopPropagation();
-  console.log('test');
+  var projectTitleValidate = false;
+  var projectDescValidate = false;
+  if (projectTitle.value) {
+    projectTitleValidate = true;
+  }
+  if (projectDescription.value) {
+    projectDescValidate = true;
+  }
+  if (!projectDescValidate || !projectTitleValidate) {
+    alert('Must have a title and description!');
+    return;
+  }
+  projectTitleValidate = false;
+  projectDescValidate = false;
+  createProject(capitalizeFirstLetter(projectTitle.value), capitalizeFirstLetter(projectDescription.value), projectColor.value);
   hideProjectForm(e);
 }
 
@@ -1021,8 +1034,6 @@ document.addEventListener('click', function (e) {
       if (confirm('Are you sure you want to remove this todo from the project?')) {
         projects[e.target.dataset.currentProject].removeTodo(e.target.dataset.currentIndex);
         loadCards(projects[currentLoadedProject]);
-        console.log(todos);
-        console.log(projects);
       }
     }
   }
@@ -1032,16 +1043,9 @@ document.addEventListener('click', function (e) {
   if (target) {
     if (confirm('Are you sure you want to delete this todo?')) {
       removeTodo(todos[e.target.dataset.defaultIndex]);
-      console.log(todos);
-      console.log(projects);
     }
   }
 });
-createProject('Work', 'This is a test project', 'red');
-createProject('Personal', 'This is a test project 1', 'green');
-createTodo('Test', 1, '2022-03-17', 1, 'Test todo 1');
-createTodo('Default Test', 0, '2022-03-18', 2, 'Test todo 2');
-createTodo('Skip', 2, '2022-03-19', 4, 'Test todo 4');
 loadImages();
 loadCards(projects[0]);
 loadProjects(projects);
@@ -1049,4 +1053,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle0344ac4875f2a97f1b29.js.map
+//# sourceMappingURL=bundlec7ba6cd5c43cab71688d.js.map

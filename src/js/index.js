@@ -8,6 +8,7 @@ import {
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import { formControls } from './formControls';
+import { projectFormControls } from './projectFormControls';
 import { loadImages } from './loadImages';
 import '../css/style.css';
 
@@ -28,6 +29,14 @@ document.addEventListener('click', function (e) {
 
   if (target) {
     formControls();
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const target = e.target.closest('#newProjectBtn');
+
+  if (target) {
+    projectFormControls();
   }
 });
 

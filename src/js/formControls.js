@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 import {
   createTodo,
   createProject,
@@ -7,19 +7,19 @@ import {
   moveTodo,
   todos,
   projects,
-} from "./appController";
-import { loadCards, loadProjects, currentLoadedProject } from "./domController";
+} from './appController';
+import { loadCards, loadProjects, currentLoadedProject } from './domController';
 let currentTodo;
-const editFormWrapper = document.querySelector("#editFormWrapper");
-const editForm = document.querySelector("#editForm");
-const pushChnageBtn = document.querySelector("#formSubmitBtn");
-const projectFormInput = document.querySelector("#todoProject");
-const todoTitleForm = document.querySelector("#todoTitle");
+const editFormWrapper = document.querySelector('#editFormWrapper');
+const editForm = document.querySelector('#editForm');
+const pushChnageBtn = document.querySelector('#formSubmitBtn');
+const projectFormInput = document.querySelector('#todoProject');
+const todoTitleForm = document.querySelector('#todoTitle');
 function formControls(todo) {
   currentTodo = todo;
-  pushChnageBtn.addEventListener("click", pushTodoEdits);
+  pushChnageBtn.addEventListener('click', pushTodoEdits);
 
-  editFormWrapper.classList.add("form-open");
+  editFormWrapper.classList.add('form-open');
   loadProjectOptions(projectFormInput);
 
   if (todo) {
@@ -27,29 +27,29 @@ function formControls(todo) {
     fillFormFields(editForm, todo);
   } else {
     editForm.reset();
-    const formTitle = document.querySelector("#formTitle");
-    formTitle.textContent = "New todo";
+    const formTitle = document.querySelector('#formTitle');
+    formTitle.textContent = 'New todo';
   }
 
-  const hideBtn = document.querySelector("#hideBtn");
-  hideBtn.addEventListener("click", function () {
-    editFormWrapper.classList.remove("form-open");
+  const hideBtn = document.querySelector('#hideBtn');
+  hideBtn.addEventListener('click', function () {
+    editFormWrapper.classList.remove('form-open');
   });
 }
 
 function pushTodoEdits(e) {
   e.preventDefault();
   e.stopPropagation();
-  if (todoTitleForm.value == "") {
-    alert("Must have a Title!");
+  if (todoTitleForm.value == '') {
+    alert('Must have a Title!');
     return;
   }
   if (currentTodo) {
     Array.from(editForm).forEach((element) => {
       const todoID = String(element.id).slice(4).toLowerCase();
-      if (todoID === "btn" || todoID === "submitbtn") {
+      if (todoID === 'btn' || todoID === 'submitbtn') {
         return;
-      } else if (todoID === "project") {
+      } else if (todoID === 'project') {
         if (currentTodo.project !== 0) {
           projects[currentTodo.project].removeTodo(
             currentTodo.currentProjectIndex
@@ -60,7 +60,7 @@ function pushTodoEdits(e) {
           projects[currentTodo.project].addTodo(currentTodo);
         }
         // moveTodo(currentTodo, projects[Number(element.value)]);
-      } else if (todoID === "priority") {
+      } else if (todoID === 'priority') {
         currentTodo[todoID] = Number(element.value);
       } else {
         currentTodo[todoID] = element.value;
@@ -80,13 +80,13 @@ function pushTodoEdits(e) {
     let formInputs = [];
     let formLabels = [];
     Array.from(editForm).forEach((element) => {
-      if (element.value && element.id !== "todoTitle") {
+      if (element.value && element.id !== 'todoTitle') {
         formInputs.push(element.value);
         formLabels.push(element.id.slice(4).toLowerCase());
       }
     });
     for (let i = 0; i < formInputs.length; i++) {
-      if (formLabels[i] === "project" || formLabels[i] === "priority") {
+      if (formLabels[i] === 'project' || formLabels[i] === 'priority') {
         newTodo[formLabels[i]] = Number(formInputs[i]);
       } else {
         newTodo[formLabels[i]] = String(formInputs[i]);
@@ -97,13 +97,13 @@ function pushTodoEdits(e) {
     }
   }
   loadCards(projects[currentLoadedProject]);
-  editFormWrapper.classList.remove("form-open");
+  editFormWrapper.classList.remove('form-open');
   console.log(todos);
   console.log(projects);
 }
 
 function loadFormOptions(todo) {
-  const formTitle = document.querySelector("#formTitle");
+  const formTitle = document.querySelector('#formTitle');
   formTitle.textContent = todo.title;
 
   projectFormInput.selectedIndex = todo.project;
@@ -112,7 +112,7 @@ function loadFormOptions(todo) {
 function fillFormFields(form, todo) {
   Array.from(form).forEach((element) => {
     const todoID = String(element.id).slice(4).toLowerCase();
-    if (todoID === "btn") {
+    if (todoID === 'btn') {
       return;
     }
     if (todo[todoID]) {
@@ -122,12 +122,12 @@ function fillFormFields(form, todo) {
 }
 
 function loadProjectOptions(formSelect) {
-  formSelect.innerHTML = "";
+  formSelect.innerHTML = '';
   projects.forEach((project) => {
-    const projectOption = document.createElement("option");
+    const projectOption = document.createElement('option');
     projectOption.value = project.index;
     if (project.index === 0) {
-      projectOption.textContent = "Main Project";
+      projectOption.textContent = 'Main Project';
     } else {
       projectOption.textContent = project.title;
     }

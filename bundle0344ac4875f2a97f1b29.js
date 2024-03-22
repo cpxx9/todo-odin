@@ -660,42 +660,42 @@ function loadProjects(projectArr) {
 
 
 var currentTodo;
-var editFormWrapper = document.querySelector("#editFormWrapper");
-var editForm = document.querySelector("#editForm");
-var pushChnageBtn = document.querySelector("#formSubmitBtn");
-var projectFormInput = document.querySelector("#todoProject");
-var todoTitleForm = document.querySelector("#todoTitle");
+var editFormWrapper = document.querySelector('#editFormWrapper');
+var editForm = document.querySelector('#editForm');
+var pushChnageBtn = document.querySelector('#formSubmitBtn');
+var projectFormInput = document.querySelector('#todoProject');
+var todoTitleForm = document.querySelector('#todoTitle');
 function formControls(todo) {
   currentTodo = todo;
-  pushChnageBtn.addEventListener("click", pushTodoEdits);
-  editFormWrapper.classList.add("form-open");
+  pushChnageBtn.addEventListener('click', pushTodoEdits);
+  editFormWrapper.classList.add('form-open');
   loadProjectOptions(projectFormInput);
   if (todo) {
     loadFormOptions(todo);
     fillFormFields(editForm, todo);
   } else {
     editForm.reset();
-    var formTitle = document.querySelector("#formTitle");
-    formTitle.textContent = "New todo";
+    var formTitle = document.querySelector('#formTitle');
+    formTitle.textContent = 'New todo';
   }
-  var hideBtn = document.querySelector("#hideBtn");
-  hideBtn.addEventListener("click", function () {
-    editFormWrapper.classList.remove("form-open");
+  var hideBtn = document.querySelector('#hideBtn');
+  hideBtn.addEventListener('click', function () {
+    editFormWrapper.classList.remove('form-open');
   });
 }
 function pushTodoEdits(e) {
   e.preventDefault();
   e.stopPropagation();
-  if (todoTitleForm.value == "") {
-    alert("Must have a Title!");
+  if (todoTitleForm.value == '') {
+    alert('Must have a Title!');
     return;
   }
   if (currentTodo) {
     Array.from(editForm).forEach(function (element) {
       var todoID = String(element.id).slice(4).toLowerCase();
-      if (todoID === "btn" || todoID === "submitbtn") {
+      if (todoID === 'btn' || todoID === 'submitbtn') {
         return;
-      } else if (todoID === "project") {
+      } else if (todoID === 'project') {
         if (currentTodo.project !== 0) {
           projects[currentTodo.project].removeTodo(currentTodo.currentProjectIndex);
         }
@@ -704,7 +704,7 @@ function pushTodoEdits(e) {
           projects[currentTodo.project].addTodo(currentTodo);
         }
         // moveTodo(currentTodo, projects[Number(element.value)]);
-      } else if (todoID === "priority") {
+      } else if (todoID === 'priority') {
         currentTodo[todoID] = Number(element.value);
       } else {
         currentTodo[todoID] = element.value;
@@ -720,13 +720,13 @@ function pushTodoEdits(e) {
     var formInputs = [];
     var formLabels = [];
     Array.from(editForm).forEach(function (element) {
-      if (element.value && element.id !== "todoTitle") {
+      if (element.value && element.id !== 'todoTitle') {
         formInputs.push(element.value);
         formLabels.push(element.id.slice(4).toLowerCase());
       }
     });
     for (var i = 0; i < formInputs.length; i++) {
-      if (formLabels[i] === "project" || formLabels[i] === "priority") {
+      if (formLabels[i] === 'project' || formLabels[i] === 'priority') {
         newTodo[formLabels[i]] = Number(formInputs[i]);
       } else {
         newTodo[formLabels[i]] = String(formInputs[i]);
@@ -737,19 +737,17 @@ function pushTodoEdits(e) {
     }
   }
   loadCards(projects[currentLoadedProject]);
-  editFormWrapper.classList.remove("form-open");
-  console.log(todos);
-  console.log(projects);
+  editFormWrapper.classList.remove('form-open');
 }
 function loadFormOptions(todo) {
-  var formTitle = document.querySelector("#formTitle");
+  var formTitle = document.querySelector('#formTitle');
   formTitle.textContent = todo.title;
   projectFormInput.selectedIndex = todo.project;
 }
 function fillFormFields(form, todo) {
   Array.from(form).forEach(function (element) {
     var todoID = String(element.id).slice(4).toLowerCase();
-    if (todoID === "btn") {
+    if (todoID === 'btn') {
       return;
     }
     if (todo[todoID]) {
@@ -758,12 +756,12 @@ function fillFormFields(form, todo) {
   });
 }
 function loadProjectOptions(formSelect) {
-  formSelect.innerHTML = "";
+  formSelect.innerHTML = '';
   projects.forEach(function (project) {
-    var projectOption = document.createElement("option");
+    var projectOption = document.createElement('option');
     projectOption.value = project.index;
     if (project.index === 0) {
-      projectOption.textContent = "Main Project";
+      projectOption.textContent = 'Main Project';
     } else {
       projectOption.textContent = project.title;
     }
@@ -832,6 +830,38 @@ function createProject() {
   projects.push(newProject);
   newProject.index = projects.length - 1;
   loadProjects(projects);
+}
+
+;// CONCATENATED MODULE: ./src/js/projectFormControls.js
+
+
+var projectFormWrapper = document.querySelector('#projectFormWrapper');
+var projectForm = document.querySelector('#projectForm');
+var projectTitle = document.querySelector('#projectTitle');
+var projectDescription = document.querySelector('#projectDescription');
+var projectColor = document.querySelector('#projectColor');
+var hideBtn = document.querySelector('#projectHideBtn');
+var submitBtn = document.querySelector('#projectFormSubmitBtn');
+submitBtn.addEventListener('click', submitProjectForm);
+hideBtn.addEventListener('click', hideProjectForm);
+function projectFormControls() {
+  projectColor.value = "#".concat(Math.floor(Math.random() * 16777215).toString(16));
+  console.log(projectColor.value);
+  projectFormWrapper.classList.add('form-open');
+}
+function hideProjectForm(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  console.log('test');
+  projectFormWrapper.classList.remove('form-open');
+  projectTitle.value = '';
+  projectDescription.value = '';
+}
+function submitProjectForm(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  console.log('test');
+  hideProjectForm(e);
 }
 
 ;// CONCATENATED MODULE: ./src/img/header/bell-ring-outline.svg
@@ -955,6 +985,7 @@ var update = injectStylesIntoStyleTag_default()(style/* default */.A, options);
 
 
 
+
 document.addEventListener('click', function (e) {
   var target = e.target.closest('.project-nav-btn');
   if (target) {
@@ -967,6 +998,12 @@ document.addEventListener('click', function (e) {
   var target = e.target.closest('#newTodoBtn');
   if (target) {
     formControls();
+  }
+});
+document.addEventListener('click', function (e) {
+  var target = e.target.closest('#newProjectBtn');
+  if (target) {
+    projectFormControls();
   }
 });
 document.addEventListener('click', function (e) {
@@ -1012,4 +1049,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle5d9abcbb006449150055.js.map
+//# sourceMappingURL=bundle0344ac4875f2a97f1b29.js.map

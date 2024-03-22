@@ -64,8 +64,6 @@ document.addEventListener('click', function (e) {
           e.target.dataset.currentIndex
         );
         loadCards(projects[currentLoadedProject]);
-        console.log(todos);
-        console.log(projects);
       }
     }
   }
@@ -77,18 +75,9 @@ document.addEventListener('click', function (e) {
   if (target) {
     if (confirm('Are you sure you want to delete this todo?')) {
       removeTodo(todos[e.target.dataset.defaultIndex]);
-      console.log(todos);
-      console.log(projects);
     }
   }
 });
-
-createProject('Work', 'This is a test project', 'red');
-createProject('Personal', 'This is a test project 1', 'green');
-
-createTodo('Test', 1, '2022-03-17', 1, 'Test todo 1');
-createTodo('Default Test', 0, '2022-03-18', 2, 'Test todo 2');
-createTodo('Skip', 2, '2022-03-19', 4, 'Test todo 4');
 
 loadImages();
 loadCards(projects[0]);

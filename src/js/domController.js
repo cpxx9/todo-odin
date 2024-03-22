@@ -19,10 +19,24 @@ function loadCards(project) {
     cardContent.classList.add('card-content');
     const cardTitle = document.createElement('h3');
     cardTitle.textContent = todo.title;
-    const cardPara = document.createElement('p');
-    if (todo.description) {
-      cardPara.textContent = todo.description;
+    const cardPara = document.createElement('div');
+    if (todo.priority) {
+      const priorityDOM = document.createElement('h4');
+      priorityDOM.innerHTML = `<em>Priority:</em> ${todo.priority}`;
+      cardPara.appendChild(priorityDOM);
     }
+    if (todo.date) {
+      const dueDateDOM = document.createElement('h4');
+      console.log(todo.date);
+      dueDateDOM.innerHTML = `<em>Due:</em> ${todo.date}`;
+      cardPara.appendChild(dueDateDOM);
+    }
+    if (todo.description) {
+      const descDOM = document.createElement('p');
+      descDOM.textContent = todo.description;
+      cardPara.appendChild(descDOM);
+    }
+
     cardContent.appendChild(cardTitle);
     if (todo.project !== 0) {
       const cardProject = document.createElement('p');

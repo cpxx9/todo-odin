@@ -586,6 +586,7 @@ function loadCards(project) {
   project.todos.forEach(function (todo) {
     var card = document.createElement('div');
     card.classList.add('card', 'main-card');
+    card.style.borderLeftColor = projects[todo.project].color;
     var cardContent = document.createElement('div');
     cardContent.classList.add('card-content');
     var cardTitle = document.createElement('h3');
@@ -781,7 +782,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Objec
 
 
 var todos = [];
-var projects = [new Project('All Your', 'This is the default project')];
+var projects = [new Project('All Your', 'This is the default project', '#FF0000')];
 function createTodo() {
   var newTodo = _construct(Todo, Array.prototype.slice.call(arguments));
   todos.push(newTodo);
@@ -1053,4 +1054,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlec7ba6cd5c43cab71688d.js.map
+//# sourceMappingURL=bundlef5a2f6db1e65e3eb33ad.js.map

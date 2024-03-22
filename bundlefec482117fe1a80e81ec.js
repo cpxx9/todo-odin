@@ -591,9 +591,22 @@ function loadCards(project) {
     cardContent.classList.add('card-content');
     var cardTitle = document.createElement('h3');
     cardTitle.textContent = todo.title;
-    var cardPara = document.createElement('p');
+    var cardPara = document.createElement('div');
+    if (todo.priority) {
+      var priorityDOM = document.createElement('h4');
+      priorityDOM.innerHTML = "<em>Priority:</em> ".concat(todo.priority);
+      cardPara.appendChild(priorityDOM);
+    }
+    if (todo.date) {
+      var dueDateDOM = document.createElement('h4');
+      console.log(todo.date);
+      dueDateDOM.innerHTML = "<em>Due:</em> ".concat(todo.date);
+      cardPara.appendChild(dueDateDOM);
+    }
     if (todo.description) {
-      cardPara.textContent = todo.description;
+      var descDOM = document.createElement('p');
+      descDOM.textContent = todo.description;
+      cardPara.appendChild(descDOM);
     }
     cardContent.appendChild(cardTitle);
     if (todo.project !== 0) {
@@ -1054,4 +1067,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef5a2f6db1e65e3eb33ad.js.map
+//# sourceMappingURL=bundlefec482117fe1a80e81ec.js.map

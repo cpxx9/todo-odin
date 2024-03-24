@@ -3,10 +3,21 @@ import { Project } from './projects';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import { formControls } from './formControls';
 
-const todos = [];
-const projects = [
+let todos = [];
+let projects = [
   new Project('All Your', 'This is the default project', '#FF0000'),
 ];
+
+if (localStorage.getItem('projects') !== null) {
+  projects.pop();
+  projects.push(...JSON.parse(localStorage.getItem('projects')));
+  console.log(projects);
+}
+
+if (localStorage.getItem('todos') !== null) {
+  todos.push(...JSON.parse(localStorage.getItem('todos')));
+  console.log(todos);
+}
 
 function createTodo() {
   const newTodo = new Todo(...arguments);
@@ -20,6 +31,7 @@ function createTodo() {
     }
   }
   loadCards(projects[currentLoadedProject]);
+  saveToStorage();
   return newTodo;
 }
 
@@ -60,6 +72,20 @@ function createProject() {
   projects.push(newProject);
   newProject.index = projects.length - 1;
   loadProjects(projects);
+  saveToStorage();
 }
 
-export { createTodo, createProject, removeTodo, moveTodo, todos, projects };
+function saveToStorage() {
+  localStorage.setItem('todos', JSON.stringify(projects[0].todos));
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+export {
+  createTodo,
+  createProject,
+  removeTodo,
+  moveTodo,
+  todos,
+  projects,
+  saveToStorage,
+};

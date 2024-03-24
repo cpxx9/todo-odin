@@ -7,6 +7,7 @@ import {
   moveTodo,
   todos,
   projects,
+  saveToStorage,
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
 let currentTodo;
@@ -59,7 +60,8 @@ function pushTodoEdits(e) {
         if (currentTodo.project !== 0) {
           projects[currentTodo.project].addTodo(currentTodo);
         }
-        // moveTodo(currentTodo, projects[Number(element.value)]);
+        // need to update local storage here
+        saveToStorage();
       } else if (todoID === 'priority') {
         currentTodo[todoID] = Number(element.value);
       } else {

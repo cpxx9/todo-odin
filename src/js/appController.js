@@ -8,16 +8,47 @@ let projects = [
   new Project('All Your', 'This is the default project', '#FF0000'),
 ];
 
+if (localStorage.getItem('todos') !== null) {
+  let storageTodoArray = JSON.parse(localStorage.getItem('todos'));
+  storageTodoArray.forEach((item) => {
+    const newTodoFromStorage = new Todo(
+      item.title,
+      item.project,
+      item.date,
+      item.priority,
+      item.description
+    );
+    newTodoFromStorage.defaultProjectIndex = item.defaultProjectIndex;
+    if (Object.hasOwn(item, 'currentProjectIndex')) {
+      newTodoFromStorage.currentProjectIndex = item.currentProjectIndex;
+    }
+    todos.push(newTodoFromStorage);
+  });
+  console.log(todos);
+}
+
 if (localStorage.getItem('projects') !== null) {
   projects.pop();
-  projects.push(...JSON.parse(localStorage.getItem('projects')));
+  let storageArray = JSON.parse(localStorage.getItem('projects'));
+  storageArray.forEach((item) => {
+    const newProjectFromStorage = new Project(
+      item.title,
+      item.description,
+      item.color
+    );
+    newProjectFromStorage.index = item.index;
+    newProjectFromStorage.todos = [];
+    projects.push(newProjectFromStorage);
+  });
   console.log(projects);
 }
 
-if (localStorage.getItem('todos') !== null) {
-  todos.push(...JSON.parse(localStorage.getItem('todos')));
-  console.log(todos);
-}
+todos.forEach((elm) => {
+  projects[elm.project].todos.push(elm);
+  if (elm.project !== 0) {
+    projects[0].todos.push(elm);
+  }
+});
 
 function createTodo() {
   const newTodo = new Todo(...arguments);
@@ -65,6 +96,7 @@ function removeTodo(todo) {
     });
   }
   loadCards(projects[currentLoadedProject]);
+  saveToStorage();
 }
 
 function createProject() {

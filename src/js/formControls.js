@@ -55,6 +55,7 @@ function pushTodoEdits(e) {
           projects[currentTodo.project].removeTodo(
             currentTodo.currentProjectIndex
           );
+          saveToStorage();
         }
         currentTodo.project = Number(element.value);
         if (currentTodo.project !== 0) {

@@ -5,6 +5,7 @@ import {
   removeTodo,
   todos,
   projects,
+  saveToStorage,
 } from './appController';
 import { loadCards, loadProjects, currentLoadedProject } from './domController';
 import { formControls } from './formControls';
@@ -64,6 +65,7 @@ document.addEventListener('click', function (e) {
           e.target.dataset.currentIndex
         );
         loadCards(projects[currentLoadedProject]);
+        saveToStorage();
       }
     }
   }

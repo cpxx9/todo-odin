@@ -27,7 +27,6 @@ function loadCards(project) {
     }
     if (todo.date) {
       const dueDateDOM = document.createElement('h4');
-      console.log(todo.date);
       dueDateDOM.innerHTML = `<em>Due:</em> ${todo.date}`;
       cardPara.appendChild(dueDateDOM);
     }

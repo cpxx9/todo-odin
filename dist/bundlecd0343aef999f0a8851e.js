@@ -599,7 +599,6 @@ function loadCards(project) {
     }
     if (todo.date) {
       var dueDateDOM = document.createElement('h4');
-      console.log(todo.date);
       dueDateDOM.innerHTML = "<em>Due:</em> ".concat(todo.date);
       cardPara.appendChild(dueDateDOM);
     }
@@ -712,12 +711,14 @@ function pushTodoEdits(e) {
       } else if (todoID === 'project') {
         if (currentTodo.project !== 0) {
           projects[currentTodo.project].removeTodo(currentTodo.currentProjectIndex);
+          saveToStorage();
         }
         currentTodo.project = Number(element.value);
         if (currentTodo.project !== 0) {
           projects[currentTodo.project].addTodo(currentTodo);
         }
-        // moveTodo(currentTodo, projects[Number(element.value)]);
+        // need to update local storage here
+        saveToStorage();
       } else if (todoID === 'priority') {
         currentTodo[todoID] = Number(element.value);
       } else {
@@ -796,6 +797,35 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Objec
 
 var todos = [];
 var projects = [new Project('All Your', 'This is the default project', '#FF0000')];
+if (localStorage.getItem('todos') !== null) {
+  var storageTodoArray = JSON.parse(localStorage.getItem('todos'));
+  storageTodoArray.forEach(function (item) {
+    var newTodoFromStorage = new Todo(item.title, item.project, item.date, item.priority, item.description);
+    newTodoFromStorage.defaultProjectIndex = item.defaultProjectIndex;
+    if (Object.hasOwn(item, 'currentProjectIndex')) {
+      newTodoFromStorage.currentProjectIndex = item.currentProjectIndex;
+    }
+    todos.push(newTodoFromStorage);
+  });
+  console.log(todos);
+}
+if (localStorage.getItem('projects') !== null) {
+  projects.pop();
+  var storageArray = JSON.parse(localStorage.getItem('projects'));
+  storageArray.forEach(function (item) {
+    var newProjectFromStorage = new Project(item.title, item.description, item.color);
+    newProjectFromStorage.index = item.index;
+    newProjectFromStorage.todos = [];
+    projects.push(newProjectFromStorage);
+  });
+  console.log(projects);
+}
+todos.forEach(function (elm) {
+  projects[elm.project].todos.push(elm);
+  if (elm.project !== 0) {
+    projects[0].todos.push(elm);
+  }
+});
 function createTodo() {
   var newTodo = _construct(Todo, Array.prototype.slice.call(arguments));
   todos.push(newTodo);
@@ -808,6 +838,7 @@ function createTodo() {
     }
   }
   loadCards(projects[currentLoadedProject]);
+  saveToStorage();
   return newTodo;
 }
 function moveTodo(todo, project) {
@@ -838,12 +869,18 @@ function removeTodo(todo) {
     });
   }
   loadCards(projects[currentLoadedProject]);
+  saveToStorage();
 }
 function createProject() {
   var newProject = _construct(Project, Array.prototype.slice.call(arguments));
   projects.push(newProject);
   newProject.index = projects.length - 1;
   loadProjects(projects);
+  saveToStorage();
+}
+function saveToStorage() {
+  localStorage.setItem('todos', JSON.stringify(projects[0].todos));
+  localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 ;// CONCATENATED MODULE: ./src/js/projectFormControls.js
@@ -1048,6 +1085,7 @@ document.addEventListener('click', function (e) {
       if (confirm('Are you sure you want to remove this todo from the project?')) {
         projects[e.target.dataset.currentProject].removeTodo(e.target.dataset.currentIndex);
         loadCards(projects[currentLoadedProject]);
+        saveToStorage();
       }
     }
   }
@@ -1067,4 +1105,4 @@ loadProjects(projects);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlefec482117fe1a80e81ec.js.map
+//# sourceMappingURL=bundlecd0343aef999f0a8851e.js.map
